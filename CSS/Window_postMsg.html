@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PostMsg</title>
+</head>
+<body>
+    <p id="states">Ready</p>
+    <button id="send">Send Message</button>
+    <p>
+        <iframe name="nested" src="Window_getMsg.html" width="90%" height="75px"></iframe>
+    </p>
+
+<script>
+    document.getElementById('send').onclick = function(){
+        window['nested'].postMessage('I like apples', 'http://localhost:63342');
+        document.getElementById('states').innerHTML = "Message Sent"
+    }
+</script>
+</body>
+</html>

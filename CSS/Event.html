@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+    <style type="text/css">
+        p {
+            background: gray;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            border: thin solid black;
+        }
+
+        table {margin: 5px; border-collapse: collapse;}
+        th,td {padding: 4px}
+
+        span {
+            background: white;
+            color: black;
+            padding: 2px;
+            cursor: default;
+        }
+
+        a {
+            background: gray;
+            color: white;
+            padding: 10px;
+            border: thin solid black;
+        }
+    </style>
+    <!--<script type="text/javascript">
+        function handleMouseOver(elem) {
+            elem.style.background = 'white';
+            elem.style.color = 'black';
+        }
+
+        function handleMouseOut(elem) {
+            elem.style.removeProperty('color');
+            elem.style.removeProperty('background');
+        }
+    </script>-->
+</head>
+<body>
+<p>
+    <label for="fave">Fruit: <input autofocus id="fave" name="fave"/></label>
+</p>
+<p>
+    <label for="name">Name: <input id="name" name="name"/></label>
+</p>
+<span id="message"></span>
+<!--<p>
+    <a href="http://baidu.com">Visit Baidu</a>
+    <a href="http://qq.com">Visit QQ</a>
+</p>-->
+<!--<p id="block1">
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是<span id="face">人脸face</span>识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+<table border="1">
+    <tr><th>Type:</th><td id="eType"></td></tr>
+    <tr><th>X:</th><td id="eX"></td></tr>
+    <tr><th>Y:</th><td id="eY"></td> </tr>
+</table>-->
+<!--<p id="block2">
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>-->
+<!--<button id="impress">Press Me</button>-->
+<script type="text/javascript">
+    var inputElems = document.getElementsByTagName('input');
+    for (var i = 0; i < inputElems.length; i++) {
+        inputElems[i].onkeyup = handleKeyboardEvent;
+    }
+
+    function handleKeyboardEvent(e) {
+        document.getElementById('message').innerHTML = 'Key pressed: ' + e.keyCode + ' Char: ' + String.fromCharCode(e.keyCode);
+    }
+
+    /*var inputElems = document.getElementsByTagName('input');
+    for (var i = 0; i < inputElems.length; i++) {
+        inputElems[i].onfocus = handleFocusEvent;
+        inputElems[i].onblur = handleFocusEvent;
+    }
+
+    function handleFocusEvent(e) {
+        if (e.type == 'focus') {
+            e.target.style.backgroundColor = 'lightgray';
+            e.target.style.border = 'thick double red';
+        }else {
+            e.target.style.removeProperty('backgroundcolor');
+            e.target.style.removeProperty('border');
+        }
+    }*/
+
+    /*var textblock = document.getElementById('block1');
+    var typeCell = document.getElementById('eType');
+    var xCell = document.getElementById('eX');
+    var yCell = document.getElementById('eY');
+
+    textblock.addEventListener('mouseover', handleMouseEvent, false);
+    textblock.addEventListener('mouseout', handleMouseEvent, false);
+    textblock.addEventListener('mousemove', handleMouseEvent, false);
+
+    function handleMouseEvent(e) {
+        if (e.eventPhase == Event.AT_TARGET) {
+            typeCell.innerHTML = e.type;
+            xCell.innerHTML = e.clientX;
+            yCell.innerHTML = e.clientY;
+
+            if (e.type == 'mouseover') {
+                e.target.style.background = 'black';
+                e.target.style.color = 'white';
+            } else {
+                e.target.style.removeProperty('color');
+                e.target.style.removeProperty('background');
+            }
+        }
+    }*/
+
+    /*function handleClick(e) {
+        if (!confirm('Do you want to navigate to ' + e.target.href + '?')) {
+            e.preventDefault();
+        };
+    }
+
+    var elems = document.getElementsByTagName('a');
+    for (var i = 0; i< elems.length; i++) {
+        elems[i].addEventListener('click', handleClick, false);
+    }*/
+
+    /*//    var pElems = document.getElementsByTagName('p');
+    var face = document.getElementById('face');
+    var textblock = document.getElementById('block1');
+
+    face.addEventListener('mouseover', handleMouseEvent);
+    face.addEventListener('mouseout', handleMouseEvent);
+    textblock.addEventListener('mouseover', handleDescendantEvent, true);
+    textblock.addEventListener('mouseout', handleDescendantEvent, true);
+    textblock.addEventListener('mouseover', handleBubbleMouseEvent, false);
+    textblock.addEventListener('mouseout', handleBubbleMouseEvent, false);
+
+    function handleBubbleMouseEvent(e) {
+        if (e.type == 'mouseover' && e.eventPhase == Event.BUBBLING_PHASE) {
+            e.target.style.textTransform = 'uppercase';
+        }else if (e.type == 'mouseout' && e.eventPhase == Event.BUBBLING_PHASE) {
+            e.target.style.textTransform = 'none';
+        }
+    }
+
+    function handleDescendantEvent(e) {
+        if (e.type == 'mouseover' && e.eventPhase == Event.CAPTURING_PHASE) {
+            e.target.style.border = 'thick solid red';
+            e.currentTarget.style.border = 'thick double black';
+        }else if (e.type == 'mouseout' && e.eventPhase == Event.CAPTURING_PHASE) {
+            e.target.style.removeProperty('border');
+            e.currentTarget.style.removeProperty('border');
+        }
+//        e.stopPropagation();
+//        e.stopImmediatePropagation();
+    }*/
+
+    /* for (var i = 0; i < pElems.length; i++) {
+        pElems[i].onmouseover = handleMouseOver;
+         pElems[i].onmouseout = handleMouseOut;
+         pElems[i].addEventListener('mouseover',handleMouseOver);
+         pElems[i].addEventListener('mouseout',handleMouseOut);
+        pElems[i].onmouseover = handleMouseEvent;
+        pElems[i].onmouseout = handleMouseEvent;
+    }*/
+
+    /*document.getElementById('impress').onclick = function () {
+     document.getElementById('blcok2').removeEventListener('mouseout',handleMouseOut);
+     };
+
+    function handleMouseEvent(e) {
+        if (e.type == 'mouseover') {
+            e.target.style.background = 'black';
+            e.target.style.color = 'white';
+        } else {
+            e.target.style.removeProperty('color');
+            e.target.style.removeProperty('background');
+        }
+    }*/
+
+    /*function handleMouseOver(e) {
+     e.target.style.background = 'white';
+     e.target.style.color = 'black';
+     }
+
+     function handleMouseOut(e) {
+     e.target.style.removeProperty('color');
+     e.target.style.removeProperty('background');
+     }*/
+</script>
+<!--<p onmouseover="this.style.background = 'white'; this.style.color = 'black'" onmouseout="this.style.removeProperty('color');this.style.removeProperty('background')">
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+<p onmouseover=handleMouseOver(this); onmouseout=handleMouseOut(this);>
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>-->
+</body>
+</html>

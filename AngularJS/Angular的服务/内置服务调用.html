@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>内置服务调用</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="show">当前地址是：{{url}}</div>
+    <button ng-click="onClick()">显示地址</button>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope, $location) {
+        $scope.onClick = function () {
+            $scope.url = $location.absUrl();
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Composition</title>
+    <style>
+        /*#mouse { */
+        /*z-index: 10;*/
+        /*top: 15px;*/
+        /*left: 150px;*/
+        /*}*/
+
+        /*#apple {*/
+        /*z-index: 2;*/
+        /*top: 25px;*/
+        /*left: 120px;*/
+        /*}*/
+
+        /*img {*/
+        /*float: left;*/
+        /*background: lightgray;*/
+        /*position: fixed;*/
+        /*padding: 2px;*/
+        /*margin: 2px;*/
+        /*border: medium double black;*/
+        /*}*/
+
+        /*p {*/
+            /*column-count: 3;*/
+            /*column-width: 10em;*/
+            /*column-fill: balance;*/
+            /*column-rule: medium solid black;*/
+            /*column-gap: 1.5em;*/
+            /*float: left;*/
+            /*width: 150px;*/
+            /*max-width: 250px;*/
+            /*border: medium solid black;*/
+            /*background: lightgray;*/
+            /*margin: 2px;*/
+        /*}*/
+
+        /*#container {*/
+            /*display: -webkit-box;*/
+            /*-webkit-box-direction: reverse;*/
+            /*-webkit-box-align: end;*/
+            /*-webkit-box-pack: justify;*/
+        /*}*/
+        /*#first {*/
+            /*-webkit-box-flex: 3;*/
+        /*}*/
+        /*#second {*/
+            /*-webkit-box-flex: 1;*/
+        /*}*/
+
+        #table {
+            display: table;
+        }
+
+        div.row {
+            display: table-row;
+            background: lightgray;
+        }
+
+        p {
+            display: table-cell;
+            border: thin solid black;
+            padding: 15px;
+            margin: 15px;
+        }
+
+        img {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="table">
+    <div class="row">
+    <p id="first">
+        网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+        眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客
+        用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。
+    </p>
+    <p id="second">
+        网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+        眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。
+    </p>
+    <p id="third">
+        网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+        眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客
+        用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。这个参考了博客
+        用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。
+    </p>
+    </div>
+    <div class="row">
+        <p>
+            This is mouse.<img src="headImage.png" alt="mouse"/>
+        </p>
+        <p>
+            This is mouse.<img src="headImage.png" alt="mouse"/>
+        </p>
+        <p>
+           No pic.
+        </p>
+    </div>
+</div>
+<!--<p>-->
+<!--<img id="mouse" src="headImage.png" alt="small mouse"/>-->
+<!--</p>-->
+<!--<p>-->
+<!--<img id="apple" src="headImage.png" alt="small apple"/>-->
+<!--</p>-->
+<!--<p>-->
+<!--网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>-->
+<!--眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.-->
+<!--用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。-->
+<!--</p>-->
+<!--<p>-->
+<!--<button>Static</button>-->
+<!--<button>Relative</button>-->
+<!--<button>Absolute</button>-->
+<!--<button>Fixed</button>-->
+<!--</p>-->
+<!--<script>-->
+<!--var buttons = document.getElementsByTagName('button')-->
+<!--for (var i = 0; i<buttons.length; i++) {-->
+<!--buttons[i].onclick = function(e){-->
+<!--document.getElementById('mouse').style.position = e.target.innerHTML-->
+<!--}-->
+<!--}-->
+<!--</script>-->
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        ul {
+            list-style-type: none;
+            width: 408px;
+            margin: 10px 0px;
+            padding: 0px;
+        }
+            ul .ng-scope {
+                background-color: #eee;
+            }
+            ul li {
+                float: left;
+                padding: 5px 0px;
+            }
+                ul li span {
+                    width: 52px;
+                    float: left;
+                    padding: 0px 10px;
+                }
+            ul .bold {
+                font-weight: bold;
+            }
+            ul .school {
+                float: right;
+                margin-right: 80px;
+            }
+    </style>
+    <title>作用域层级</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <ul ng-controller="ctrl1">
+        <li ng-class="{{school}}">{{s_name}}{{c_name}}</li>
+        <li ng-class={{bold}}>
+            <span>序号</span>
+            <span>姓名</span>
+            <span>性别</span>
+            <span>英语</span>
+            <span>数学</span>
+        </li>
+        <li ng-repeat="stu in data">
+            <span>{{$index+1}}</span>
+            <span>{{stu.name}}</span>
+            <span>{{stu.sex}}</span>
+            <span>{{stu.english}}</span>
+            <span>{{stu.maths}}</span>
+        </li>
+    </ul>
+    <ul ng-controller="ctrl2">
+        <li ng-class="{{school}}">{{s_name}}{{c_name}}</li>
+        <li ng-class={{bold}}>
+            <span>序号</span>
+            <span>姓名</span>
+            <span>性别</span>
+            <span>英语</span>
+            <span>数学</span>
+        </li>
+        <li ng-repeat="stu in data">
+            <span>{{$index+1}}</span>
+            <span>{{stu.name}}</span>
+            <span>{{stu.sex}}</span>
+            <span>{{stu.english}}</span>
+            <span>{{stu.maths}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.s_name = "北城区小学";
+        $scope.bold = "bold";
+        $scope.school = "school";
+    });
+    app.controller("ctrl1", function ($scope) {
+        $scope.c_name = "三年级一班";
+        $scope.data = [
+            {name: "小乔", sex: "ny", english: 95, maths: 80},
+            {name: "张飞", sex: "nan", english: 75, maths: 90}
+        ]
+    });
+    app.controller("ctrl2", function ($scope) {
+        $scope.c_name = "三年级二班";
+        $scope.data = [
+            {name: "大乔", sex: "ny", english: 95, maths: 80},
+            {name: "赵云", sex: "nan", english: 100, maths: 100}
+        ]
+    });
+</script>
+</body>
+</html>

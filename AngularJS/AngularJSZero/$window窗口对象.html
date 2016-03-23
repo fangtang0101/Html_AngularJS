@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>$window窗口对象</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <div ng-controller="ctrl">
+        <input type="text" ng-model="text"/>
+        <button ng-click="show()">显示</button>
+    </div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function($scope, $window) {
+        $scope.text = '';
+        $scope.show = function () {
+            $window.alert('输入的内容是: ' + $scope.text);
+        }
+    });
+</script>
+</body>
+</html>

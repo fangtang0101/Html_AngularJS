@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Use</title>
+    <style>
+        table {
+            border: solid thin black;
+            border-collapse: collapse;
+            margin: 10px;
+        }
+
+        td {
+            padding: 4px 5px
+        }
+
+        p {
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+<!--<table border="1">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>Fruit</th>-->
+<!--<th>Color</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--&lt;!&ndash;<tr>&ndash;&gt;-->
+<!--&lt;!&ndash;<td class="sum">1 x 1</td>&ndash;&gt;-->
+<!--&lt;!&ndash;<td class="result">1</td>&ndash;&gt;-->
+<!--&lt;!&ndash;</tr>&ndash;&gt;-->
+<!--<tr>-->
+<!--<td>Banana</td>-->
+<!--<td>Yellow</td>-->
+<!--</tr>-->
+<!--<tr id="apple">-->
+<!--<td>Apple</td>-->
+<!--<td>Red/Green</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+
+<!--<table border="1">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>Friut</th>-->
+<!--<th>Color</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--&lt;!&ndash;<tbody id="fruitsBody">&ndash;&gt;-->
+<!--<tbody>-->
+<!--<tr class="plumrow">-->
+<!--<td>Plum</td>-->
+<!--<td>Perple</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--<table border="1">-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th>Friut</th>-->
+        <!--<th>Color</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr id="plumrow">-->
+        <!--<td>Plum</td>-->
+        <!--<td>Perple</td>-->
+    <!--</tr>-->
+    <!--<tr id="applerow">-->
+        <!--<td>Apple</td>-->
+        <!--<td>Red</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+<!--<table border="1">-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th>Friut</th>-->
+        <!--<th>Color</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody id="fruitsBody">-->
+    <!--<tr>-->
+        <!--<td>Plum</td>-->
+        <!--<td>Perple</td>-->
+    <!--</tr>-->
+    <!--<tr id="targetrow">-->
+        <!--<td colspan="2">This is the placeholder</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+<!--<textarea rows="3" id="results"></textarea>-->
+<p id="textblock">
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+<p>
+    <!--<button id="inner">Inner HTML</button>-->
+    <!--<button id="outer">Outer HTML</button>-->
+    <!--<button id="move">Move Row</button>-->
+    <!--<button id="ab">After Begin</button>-->
+    <!--<button id="ae">After End</button>-->
+    <!--<button id="bb">Before Begin</button>-->
+    <!--<button id="be">Before End</button>-->
+    <button id="insert">Insert Element</button>
+</p>
+<!--<pre id="results"></pre>-->
+<!--<button id="add">Add Element</button>-->
+<!--<button id="remove">Remove Element</button>-->
+<!--<button id="clonerow">Clone Row</button>-->
+<!--<button id="move">Move Row</button>-->
+
+<script>
+    document.getElementById('insert').onclick = function () {
+        var textBlock = document.getElementById('textblock');
+        textBlock.firstChild.splitText(10);
+        var newText = textBlock.childNodes[1].splitText(4).previousSibling;
+        textBlock.insertBefore(document.createElement('b'), newText).appendChild(newText);
+    };
+
+//    var target = document.getElementById('targetrow');
+//    var buttons = document.getElementsByTagName('button');
+//    for(var i = 0; i < buttons.length; i++)
+//    {
+//        buttons[i].onclick = handleButtonPress;
+//    }
+//
+//    function handleButtonPress(e) {
+//        if(e.target.id == 'ab'){
+//            target.insertAdjacentHTML('afterbegin', '<td>After Begin</td>');
+//        }else if(e.target.id == 'ae'){
+//            target.insertAdjacentHTML('afterend', '<td>After End</td>');
+//        }else if(e.target.id == 'bb'){
+//            target.insertAdjacentHTML('beforebegin', '<td>Before Begin</td>')
+//        }else{
+//            target.insertAdjacentHTML('beforeend', '<td>Before End</td>');
+//        }
+//    }
+
+//    document.getElementById('move').onclick = function () {
+//        var source = document.getElementById('applerow');
+//        var target = document.getElementById('targetrow');
+//        var ele = target.innerHTML;
+//        target.innerHTML = source.innerHTML;
+//        source.innerHTML = ele;
+//        source.outerHTML = '<tr id="targetrow"><td colspan="2">' + 'This is the placeholder</td>'
+//    };
+
+    //    var elemByID = document.getElementById('plumrow');
+//    var elems = document.getElementById('plumrow');
+//    var results = document.getElementById('results');
+//
+//    document.getElementById('inner').onclick = function () {
+//        results.innerHTML = elems.innerHTML;
+//    };
+//
+//    document.getElementById('outer').onclick = function () {
+//        results.innerHTML = elems.outerHTML;
+//    };
+    //    var elemByPos = document.getElementById('fruitsBody').getElementsByTagName('tr')[0];
+
+    //    if (elemByID.isEqualNode(elemByPos)) {
+//    if (elems[0].isEqualNode(elems[1])) {
+//        document.getElementById('results').innerHTML = 'Object are the same';
+//    } else {
+//        document.getElementById('results').innerHTML = 'Object are not same';
+//    }
+
+    //    var tableBody = document.getElementById('fruitsBody');
+    //
+    //    document.getElementById('add').onclick = function () {
+    //        var row = tableBody.appendChild(document.createElement('tr'));
+    //        row.setAttribute('id', 'newrow');
+    //        row.appendChild(document.createElement('td')).appendChild(document.createTextNode('Plum'));
+    //        row.appendChild(document.createElement('td')).appendChild(document.createTextNode('Purple'));
+    //    };
+    //
+    //    document.getElementById('remove').onclick = function () {
+    //        var row = document.getElementById('newrow');
+    //        row.parentNode.removeChild(row);
+    //    };
+    //
+    //    document.getElementById('clonerow').onclick = function () {
+    //        var count = tableBody.getElementsByTagName('tr').length + 1;
+    //        var newElem = tableBody.getElementsByTagName('tr')[0].cloneNode(true);
+    //        newElem.getElementsByClassName('sum')[0].firstChild.data = count + ' + ' + count;
+    //        newElem.getElementsByClassName('result')[0].firstChild.data = count * count;
+    //
+    //        tableBody.appendChild(newElem);
+    //    };
+    //
+    //    document.getElementById('move').onclick = function () {
+    //        var elem = document.getElementById('apple');
+    //        tableBody.appendChild(elem);
+    //    }
+</script>
+</body>
+</html>

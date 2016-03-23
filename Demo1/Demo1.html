@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo1</title>
+    <style>
+        .fruit {
+            border: thin solid black;
+            padding: 1px;
+        }
+        body {
+            counter-reset: OuterItemCount 5 InnerItemCount;
+        }
+        #outerlist > li:before {
+            content: counter(OuterItemCount)". ";
+            counter-increment: OuterItemCount 2;
+        }
+        ul.innerlist > li:before {
+            content: counter(InnerItemCount,lower-alpha)". ";
+            counter-increment: InnerItemCount;
+        }
+    </style>
+</head>
+<body>
+<!--
+<p>
+<code>var fruits = ["apples", "oranges", "mangoes", "cherries"];<br>
+    document.writeln("I like" + furits.length + "fruits");</code>
+</p>
+<p>The variable in this example is <var>fruits</var></p>
+<p>The output from the code is: <samp>I like 4 fruits</samp></p>
+<p>When prompted for my favorite fruit, I typed: <kbd>cherries</kbd></p>
+<p>The <abbr title="Florida Department of Citrus">FDOC</abbr> regulates the Florida citrus industry.</p>
+<p>
+
+    <q cite="http://en.wikipedia.org/wiki/Apple">The <dfn title="apple">apple</dfn> is the
+    pomaceous fruit of the apple tree, species Malus domestica in the rose family.</q>
+</p>
+<p>My favorite book on fruit is <cite>Fruit:Edible, Inedible, Incredible</cite> by Stuppy & Kesseler.</p>
+
+<p>
+    <ruby>魑<rp>(</rp><rt>chi</rt><rp>)</rp></ruby>
+    <ruby>魅<rp>(</rp><rt>mei</rt><rp>)</rp></ruby>
+    <ruby>魍<rp>(</rp><rt>wang</rt><rp>)</rp></ruby>
+    <ruby>魉<rp>(</rp><rt>liang</rt><rp>)</rp></ruby>
+</p>
+
+<p>This is left-to-right: <bdo dir="ltr">I like oranges.</bdo></p>
+<p>This is right-to-left: <bdo dir="rtl">I like oranges.</bdo></p>
+
+<p>I like <span class="fruit">apples</span> <mark>and</mark> <span class="fruit">oranges</span>. </p>
+<div class="fruit">
+<p><del>This is del.</del></p>
+<p><ins>This is ins.</ins></p>
+</div>
+<p>This is time <time>2015-11-11</time>2015-11-11</p>
+i
+like
+big
+<pre>
+    i
+    <hr>
+    like
+    <hr>
+    big
+</pre>
+<blockquote cite="Zwei">
+    i like you
+</blockquote>
+<ol>
+    <li>apple</li>
+    <li value="18">orange</li>
+    <li>banana</li>
+</ol>
+<dl>
+    <dt>Apple</dt>
+        <dd>apple is on the apple tree</dd>
+    <dt>cherry</dt>
+        <dd>cherry is on the cherry tree</dd>
+</dl>
+
+<ul id="outerlist" style="list-style-type: none">
+    <li>bananas</li>
+    <li>mangoes, including</li>
+        <ul class="innerlist">
+            <li>haden mangoes</li>
+            <li>keitt mangoes</li>
+        </ul>
+    <li>cherries</li>
+    <li>plums, including:
+        <ul class="innerlist">
+            <li>elephant heart plums</li>
+            <li>seneca plums</li>
+        </ul>
+    </li>
+</ul>
+<figure>
+    <figcaption>list 23. using the code element</figcaption>
+    <code>
+        var fruits = ["apples", "oranges", "mangoes", "cherries"];<br>
+        document.writeln("I like" + fruites.length + "fruites");
+    </code>
+</figure>
+-->
+
+</body>
+</html>

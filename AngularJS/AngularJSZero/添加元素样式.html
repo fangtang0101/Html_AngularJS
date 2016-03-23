@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <title>ng-repeat指令复制元素</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        ul {
+            list-style-type: none;
+            width: 500px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul li {
+            float: left;
+            padding: 5px 0px;
+        }
+
+        ul .odd {
+            color: #0026ff;
+        }
+
+        ul .even {
+            color: #ff0000;
+        }
+
+        ul .bold {
+            font-weight: bold;
+        }
+
+        ul li span {
+            width: 50px;
+            float: left;
+            padding: 0px 10px;
+        }
+
+        ul .focus {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <ul>
+        <li ng-class="{{bold}}">
+            <span>序号</span>
+            <span>姓名</span>
+            <span>性别</span>
+            <span>是否首条</span>
+            <span>是否中间</span>
+            <span>是否尾条</span>
+        </li>
+        <!--{focus: $index == focus}angular样式键值对,值为bool,真则使用样式,否则不用样式,这里涌来判断是否点中-->
+        <li ng-repeat="stu in data" ng-class-odd="'odd'" ng-class-even="'even'" ng-click="liClick($index)"
+            ng-class="{focus: $index == focus}">
+            <span>{{$index + 1}}</span>
+            <span>{{stu.name}}</span>
+            <span>{{stu.sex}}</span>
+            <span>{{$first ? "是" : "否"}}</span>
+            <span>{{$middle ? "是" : "否"}}</span>
+            <span>{{$last ? "是" : "否"}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.bold = 'bold';
+        $scope.liClick = function (i) {
+            $scope.focus = i;
+        };
+        $scope.data = [
+            {name: "张飞", sex: "男"},
+            {name: "关羽", sex: "男"},
+            {name: "赵云", sex: "男"},
+            {name: "马超", sex: "男"},
+            {name: "黄忠", sex: "男"},
+            {name: "貂蝉", sex: "女"}
+        ];
+    });
+</script>
+</body>
+</html>

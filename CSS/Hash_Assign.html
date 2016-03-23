@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span id="banana">也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+<button id="pressme">press me</button>
+
+<p>
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+<img id="mouse" src="headImage.png" alt="mouse"/>;
+
+<p>
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+<script>
+    document.getElementById("pressme").onclick = function()
+    {
+//        document.location.hash = "mouse";
+        document.location.assign('DOM.html');
+    }
+
+</script>
+</body>
+</html>

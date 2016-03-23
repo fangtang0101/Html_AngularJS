@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TableList</title>
+    <!--<base href="http://localhost"/>-->
+</head>
+<body>
+<form enctype="multipart/form-data" name="fruitvote" id="fruitvote" target="_blank" method="post" autocomplete="off">
+    <fieldset>
+        <legend>Enter Your Details</legend>
+        <p><label for="fave">Fruit:<input placeholder="fave" maxlength="10" autofocus autocomplete="on" name="fave"
+                                          id="fave"/></label></p>
+
+        <p><label for="name">Name:<input value="Zwei" size="10" name="name" id="name"/></label></p>
+    </fieldset>
+    <fieldset>
+        <legend>Vote For Your Three Favorite Fruits</legend>
+        <p><label for="fave1">#1:<input maxlength="10" size="10" name="fave1" id="fave1"/></label></p>
+
+        <p><label for="fave2">#2:<input disabled name="fave2" id="fave2"/></label></p>
+
+        <p><label for="fave3">#3:<input disabled name="fave3" id="fave3"/></label></p>
+    </fieldset>
+    <label for="password">
+        Password:<input type="password" placeholder="Min 6 characters" id="password" name="password"/>
+    </label><br>
+    <button type="submit">Submit Vote</button>
+    <button type="reset">Reset</button>
+    <button type="button">Do <strong>Not</strong> press this button</button>
+    <p>
+        <input type="submit" value="Submit input"/>
+        <input type="reset" value="Reset input"/>
+        <input type="button" value="Button input"/>
+    </p>
+
+    <p>
+        <label for="love">
+            Love:<input disabled list="lovelist" id="love" name="love"/>
+        </label>
+        <label for="love1">
+            Love1:<input readonly list="lovelist" id="love1" name="love"/>
+        </label>
+    </p>
+
+    <p>
+        <label for="price">
+            $ per unit in your area:
+            <input type="number" step="1" min="0" max="1000" value="1" id="price" name="price"/>
+        </label><br>
+        <label for="price_range">
+            $ per unit in your area:1
+            <input type="range" step="1" min="0" max="1000" value="1" id="price_range" name="price_range"/>1000
+        </label><br>
+        <label for="isfave">
+            are you agree:
+            <input type="checkbox" value="1" id="isfave" name="isfave"/>
+        </label>
+    </p>
+
+    <P>
+    <fieldset>
+        <legend>Vote your favorite fruit</legend>
+        <label for="apples">
+            <input type="radio" checked value="Apples" id="apples" name="fave2"/>Apples
+        </label>
+        <label for="oranges">
+            <input type="radio" value="Oranges" id="oranges" name="fave2"/>Oranges
+        </label>
+        <label for="cherries">
+            <input type="radio" value="Cherries" id="cherries" name="fave2"/>Cherries
+        </label>
+    </fieldset>
+    </P>
+    <p>
+        <label for="email">
+            Email:<input type="email" placeholder="user@domail.com" id="email" name="eamil"/>
+        </label>
+    </p>
+
+    <p>
+        <label for="tel">
+            Tel:<input type="tel" placeholder="xxx-xxxxxxxx" id="tel" name="tel"/>
+        </label>
+    </p>
+
+    <p>
+        <label for="url">
+            Homepage:<input type="url" id="url" name="url"/>
+        </label>
+    </p>
+
+    <p>
+        <label for="lastbuy">
+            When did you last buy:<input type="date" placeholder="xxxx-xx-xx" id="lastbuy" name="lastbuy">
+        </label>
+    </p>
+
+    <p>
+        <label for="color">
+            Color:<input type="color" id="color" name="color">
+        </label>
+    </p>
+
+    <p>
+        <label for="search">
+            Search:<input type="search" id="search" name="search">
+        </label>
+    </p>
+    <input type="hidden" id="sendId" name="12345">
+    <input type="image" src="http://img2.imgtn.bdimg.com/it/u=384514007,3721510347&fm=11&gp=0.jpg" name="submit"/>
+    <p>
+        <input type="file" name="filelist"/>
+    </p>
+</form>
+<datalist id="lovelist">
+    <option value="Apples" label="loveApple"></option>
+    <option value="Oranges"/>
+    <option value="Melons">Refreshing Melons</option>
+</datalist>
+</body>
+</html>

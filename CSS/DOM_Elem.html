@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elem</title>
+    <style>
+        p {
+            border: medium double black;
+        }
+
+        p.newclass {
+            background: grey;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!--<p id="textblock" dir="ltr" lang="en-US" class="fruit numbers" data-fruit="apple" data-name="GG">-->
+        <!--用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是<span id="face">人脸</span>识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,-->
+        <!--<span id="eye">眼睛</span>、<span id="mouth">嘴巴</span>、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.-->
+        <!--用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。-->
+    <!--</p>-->
+    <p id="textblock">用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现<b>CoreImage</b>中的算不上人脸识别,也只是检测下人脸的位置,
+        眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+        用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。</p>
+<pre id="results"></pre>
+    <button id="pressme">Press me</button>
+    <!--<button id="toggle">Toggle Class</button>-->
+<script>
+    var results = document.getElementById('results');
+    var elem = document.getElementById('textblock');
+
+    document.getElementById('pressme').onclick = function() {
+        var textElem = elem.firstChild;
+        results.innerHTML = 'The element has ' + textElem.length + 'char\n';
+        textElem.replaceWholeText('This is a new string');
+    };
+
+//    var attrs = elem.attributes;
+//
+//    for (var i = 0; i < attrs.length; i++) {
+//        results.innerHTML += 'Name: ' + attrs[i].name + ' Value: ' + attrs[i].value + '\n';
+//    }
+//    attrs['data-fruit'].value = 'banana';
+//    results.innerHTML += 'Value of data-fruit attr: ' + attrs['data-fruit'].value;
+
+//    for(var attr in elem.dataset){
+//        results.innerHTML += attr + '\n';
+//    }
+//
+//    results.innerHTML += 'Value of data-fruit attr: ' + elem.dataset['name'];
+
+//    results.innerHTML = 'Element has lang attribute: ' + elem.hasAttribute('lang') + '\n';
+//    results.innerHTML += 'Adding lang attribute\n';
+//    elem.setAttribute('lang', 'en-US');
+//    results.innerHTML += 'Attr value is : ' + elem.getAttribute('lang') + '\n';
+//    results.innerHTML += 'Set new value for lang attribute\n';
+//    elem.setAttribute('lang', 'en-UK');
+//    results.innerHTML += 'Value is now: ' + elem.getAttribute('lang') +'\n';
+
+//    document.getElementById('toggle').onclick = toggleClass;
+//    listClass();
+
+//    results.innerHTML += "tag: " + elem.tagName +'\n';
+//    results.innerHTML += "id: " + elem.id +'\n';
+//    results.innerHTML += "dir: " + elem.dir +'\n';
+//    results.innerHTML += "lang: " + elem.lang +'\n';
+//    results.innerHTML += "hidden: " + elem.hidden +'\n';
+//    results.innerHTML += "disable: " + elem.disabled +'\n';
+
+//    document.getElementById('pressme').onclick = function() {
+//        document.getElementById('textblock').className += ' newclass';
+//    };
+//
+//    function listClass() {
+//        var classlist = document.getElementById('textblock').classList;
+//        results.innerHTML = 'Current classes: ';
+//        for (var i = 0; i < classlist.length; i++) {
+//            results.innerHTML += classlist[i] + ' ';
+//        }
+//    }
+//
+//    function toggleClass() {
+//        document.getElementById('textblock').classList.toggle('newclass');
+//        listClass();
+//    }
+</script>
+</body>
+</html>

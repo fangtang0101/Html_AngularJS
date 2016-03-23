@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <link href="过滤.css" type="text/css" rel="stylesheet"/>
+    <title>匹配方式过滤</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <ul>
+        <li ng-class="{{bold}}">
+            <span>序号</span>
+            <span>姓名</span>
+            <span>性别</span>
+            <span>年龄</span>
+            <span>分数</span>
+        </li>
+        <li ng-repeat="stu in data | filter: findscore" ng-class-odd="odd" ng-class-even="even">
+            <span>{{$index+1}}</span>
+            <span>{{stu.name}}</span>
+            <span>{{stu.sex}}</span>
+            <span>{{stu.age}}</span>
+            <span>{{stu.score}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.bold = 'bold';
+        $scope.data = [
+            {name: '111', sex: 'ny', age: 24, score:95},
+            {name: '222', sex: 'nan', age: 23, score:85},
+            {name: '333', sex: 'ny', age: 22, score:75},
+            {name: '444', sex: 'nan', age: 21, score:85}
+        ];$scope.findscore = function (e) {
+            return e.score > 80 && e.score < 100;
+        }
+    });
+</script>
+</body>
+</html>

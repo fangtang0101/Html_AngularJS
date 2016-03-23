@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <link href="过滤.css" type="text/css" rel="stylesheet"/>
+    <title>字符查找</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div>
+        <input type="text" id="txtkey" ng-model="key" placeholder="请输入姓名关键字"/>
+    </div>
+    <ul>
+        <li ng-class="{{bold}}">
+            <span>序号</span>
+            <span ng-click="title='name'; desc=!desc">姓名</span>
+            <span ng-click="title='sex'; desc=!desc">性别</span>
+            <span ng-click="title='age'; desc=!desc">年龄</span>
+            <span ng-click="title='score'; desc=!desc">分数</span>
+        </li>
+        <li ng-repeat="stu in data | filter : {name: key}">
+            <span>{{$index+1}}</span>
+            <span>{{stu.name}}</span>
+            <span>{{stu.sex}}</span>
+            <span>{{stu.age}}</span>
+            <span>{{stu.score}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.bold = 'bold';
+        $scope.key = '';
+        $scope.data = [
+            {name: '111', sex: 'ny', age: 24, score:95},
+            {name: '222', sex: 'nan', age: 23, score:85},
+            {name: '333', sex: 'ny', age: 22, score:75},
+            {name: '444', sex: 'nan', age: 21, score:85}
+        ];
+    });
+</script>
+</body>
+</html>

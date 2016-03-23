@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <style>
+        body {
+            font-size: 13px;
+        }
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>View多页面切换并传递参数</title>
+</head>
+<body>
+<div ng-view></div>
+<script>
+    var app = angular.module('app', ['ngRoute']);
+    app.controller('ctrl1', function ($scope) {
+        $scope.students = students;
+    });
+    app.controller('ctrl2', function ($scope, $routeParams) {
+        for (var i = 0; i < students.length; i++) {
+            if (students[i].stuId == $routeParams.id) {
+                $scope.student = students[i];
+            }
+        }
+    });
+    app.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider
+                .when('/', {
+                    controller: 'ctrl1',
+                    templateUrl: 'ctrl1.html'
+                })
+                .when('/view/:id', {
+                    controller: 'ctrl2',
+                    templateUrl: 'ctrl2.html',
+                    publicAccess: true
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
+    }]);
+    var students = [
+        {stuId: 1000, name: "张三", sex: "男", score: 60},
+        {stuId: 1001, name: "李四", sex: "女", score: 70},
+        {stuId: 1002, name: "王五", sex: "男", score: 80},
+        {stuId: 1003, name: "赵六", sex: "女", score: 90}
+    ]
+</script>
+</body>
+</html>

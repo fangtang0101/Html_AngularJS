@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie</title>
+</head>
+<body>
+    <p id="cookiedate">
+    </p>
+<button id="write">Add Cookie</button>
+<button id="update">Update Cookie</button>
+<script>
+    var features = ["Core", "HTML", "CSS", "Selectors-API"];
+    var levels =["1.0", "2.0", "3.0"];
+
+    document.writeln("<pre>");
+    for (var i = 0; i < features.length; i++) {
+        document.writeln("Checking for feature:" + features[i]);
+        for (var j = 0; j < levels.length; j++) {
+            document.write(features[i] + "Level " + levels[j] + ":");
+            document.writeln(document.implementation.hasFeature(features[i],levels[j]));
+        }
+    }
+    document.writeln("<pre/>")
+//    document.onreadystatechange = function () {
+//        if (document.readyState == "interactive") {
+//            document.getElementById('write').onclick = function(){
+//                document.getElementById('update').innerHTML = "changed";
+//            }
+//        }
+//    }
+//    var cookieCount = 0;
+//    document.getElementById('update').onclick = updateCookie;
+//    document.getElementById('write').onclick = createCookie;
+//    readCookies();
+//
+//    function readCookies() {
+//        document.getElementById('cookiedate').innerHTML = document.cookie;
+//    }
+//
+//    function createCookie() {
+//        cookieCount++
+//        document.cookie = "Cookie_" + cookieCount + "=Value_" + cookieCount;
+//    }
+//
+//    function updateCookie() {
+//        document.cookie = "Cookie_" + cookieCount + "=Updated_" + cookieCount;
+//        readCookies();
+//    }
+</script>
+</body>
+</html>

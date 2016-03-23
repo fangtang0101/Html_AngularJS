@@ -1,0 +1,72 @@
+                                                                                                                                       <!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input</title>
+</head>
+<body>
+<!--
+<p>
+    <label for="name">
+        <input value="Zwei" readonly id="name" name="name">
+    </label>
+</p>
+
+<p>
+    <label for="password">
+        <input type="password" placeholder="your password" id="password" name="password">
+    </label>
+</p>
+
+<p>
+    <label for="fave" style="vertical-align: top">
+        Favorite fruit:
+        <select id="fave" name="fave" size="5" multiple>
+            <optgroup label="Top Choices">
+                <option value="apples" selected label="Apples">Apples</option>
+                <option value="oranges" label="Oranges">Oranges</option>
+            </optgroup>
+            <optgroup label="Others">
+                <option value="cherries" label="Cherries">Cherries</option>
+                <option value="pears" label="Pears">Pears</option>
+            </optgroup>
+        </select>
+    </label>
+</p>
+
+<p>
+    <textarea cols="20" rows="5" wrap="hard" id="story" name="story">Tell us why this is your favorite fruit</textarea>
+</p>
+
+<p>
+<form onsubmit="return false" oninput="res.value = quant.valueAsNumber * price.valueAsNumber">
+    <fieldset>
+        <legend>Price Calculator</legend>
+        <input type="number" placeholder="Quantity" id="quant" name="quant"> x <input type="number" placeholder="Price"
+                                                                                      id="price" name="price"> =
+        <output for="quant name" name="res"/>
+    </fieldset>
+</form>
+</p>
+-->
+<form method="post">
+    <p>
+        <label for="name1">
+            Name:<input type="text" required id="name1" name="name1" pattern="^.*.*$"/>
+        </label><br>
+        <label for="password1">
+            Password:<input type="password" required placeholder="Min 6 Characters" id="password1" name="password1"/>
+        </label><br>
+        <label for="email1">
+            Email1:<input type="email" required placeholder="Min 6 Characters" pattern="*2" id="email1" name="email1"/>
+        </label><br>
+        <label for="price">
+            Price:<input type="number" min="0" max="100" value="1" id="price" name="price"/>
+        </label><br>
+        <label for="accept">
+            Accept:<input type="checkbox" required id="accept" name="accept"/>
+        </label><br>
+        <input type="submit" value="Submit" formnovalidate/>
+    </p>
+</form>
+</body>
+</html>

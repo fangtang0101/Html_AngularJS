@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style</title>
+    <script src="angular.js"></script>
+    <style>
+        .red {background: red;}
+        .yellow {background: yellow;}
+    </style>
+    <script>
+        var m1 = angular.module('myApp', []);
+        m1.controller('Aaa', function ($scope) {
+            $scope.text = 'hello';
+            $scope.style = '{color:"red", background="yellow"}';
+            $scope.sClass = '{red:true, yellow:true}';
+            $scope.url = 'http://baidu.com';
+        });
+    </script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="Aaa">
+        <div ng-class="{yellow:true}">{{text}}</div>
+        <div ng-class="{red:true}">{{text}}</div>
+        <div ng-class="{{sClass}}">{{text}}</div>
+        <div ng-class="{{url}}">{{text}}</div>
+        <a ng-attr-href="{{url}}" ng-attr-title="{{text}}" ng-attr-class="" ng-attr-style="">aaaaaaaaa</a>
+    </div>
+</body>
+</html>

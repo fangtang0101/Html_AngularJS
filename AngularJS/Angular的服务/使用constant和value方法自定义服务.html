@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>使用constant和value方法自定义服务</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="show">图书ISBN号:{{BOOK}}</div>
+    <div class="show">美元兑换价:{{USD}}</div>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app
+        //constant可以注入config,value不行
+            .constant('$ISBN', {BOOK: '9873421377'})
+            .value('$RATE', {USD: 614.11})
+            .controller('ctrl', function ($scope, $ISBN, $RATE) {
+                var n = 600;
+                angular.extend($RATE, {USD: n});
+                $scope.BOOK = $ISBN.BOOK;
+                $scope.USD = $RATE.USD;
+    });
+</script>
+</body>
+</html>

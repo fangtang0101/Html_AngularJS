@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        .show {
+            border: solid 1px #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>依赖注入原理</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="{{cls}}">{{show}}</div>
+    <button ng-click="onClick()">click me</button>
+</div>
+<script>
+    var app = angular.module('app', []);
+    //    app.controller('ctrl', function ($scope) {
+    //        $scope.cls = "";
+    //        $scope.onClick = function () {
+    //            $scope.cls = "show";
+    //            $scope.show = "点击后显示的内容";
+    //        }
+    //    });
+    //    app.controller("ctrl", ["$scope", function ($scope) {
+    //        $scope.cls = "";
+    //        $scope.onClick = function () {
+    //            $scope.cls = "show";
+    //            $scope.show = "点击后显示的内容";
+    //        }
+    //    }]);
+    //    app.config(function ($controllerProvider) {
+    //        $controllerProvider.register("ctrl", ["$scope", function ($scope) {
+    //            $scope.cls = "";
+    //            $scope.onClick = function () {
+    //                $scope.cls = "show";
+    //                $scope.show = "点击后显示的内容";
+    //            }
+    //        }]);
+    //    });
+    app.config(function ($controllerProvider) {
+        $controllerProvider.register("ctrl", ["$scope", function ($scope) {
+            $scope.cls = "";
+            $scope.onClick = function () {
+                $scope.cls = "show";
+                $scope.show = "点击后显示的内容";
+            }
+        }]);
+    });
+</script>
+</body>
+</html>

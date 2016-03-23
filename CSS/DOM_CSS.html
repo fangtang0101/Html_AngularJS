@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOMCSS</title>
+    <!--<style title="core style">-->
+    <!--p {-->
+    <!--border: medium double black;-->
+    <!--background: lightgray;-->
+    <!--}-->
+
+    <!--#block1 {color: white}-->
+    <!--table {-->
+    <!--border: thin solid black;-->
+    <!--border-collapse: collapse;-->
+    <!--margin: 5px;-->
+    <!--float: left;-->
+    <!--}-->
+    <!--td {padding: 2px}-->
+    <!--</style>-->
+    <!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+    <!--<style media="screen AND (min-width: 500px)" type="text/css">-->
+    <!--#block2 {color: yellow; font-style: italic}-->
+    <!--</style>-->
+    <style title="core styles">
+        p {
+            /*color: white;*/
+            /*background-color: gray !important;*/
+            padding: 7px !important;
+        /*border: medium double black;*/
+        /*background: lightgray;*/
+        }
+
+        #block1 {
+            color: white;
+            border: thick solid black;
+            background-color: gray !important;
+        }
+
+        /*#block2 {*/
+        /*border: medium dashed blue; color: red; padding: 2px;*/
+        /*}*/
+
+        table {
+            border: thin solid black;
+            border-collapse: collapse;
+            margin: 5px;
+            float: left;
+        }
+
+        td {
+            padding: 2px
+        }
+    </style>
+</head>
+<body>
+<p id="block1">
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+<p id="block2" style="border: medium dashed blue; color: red; padding: 2px;">
+    网上有的写的是人脸识别,了解了下发现CoreImage中<a href="http://baidu.com/" id="1">我是一个超链</a>的算不上人脸识别,<span style="color: green">也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+<a href="http://baidu.com/" id="2">我是一个超链</a>
+
+<div id="placeholder"/>
+<div>
+    <button id="pressme">Press Me</button>
+</div>
+
+<button id="xinling" name="bendan">a = 5 b = 6</button>>
+<script>
+    var placeHolder = document.getElementById('placeholder');
+        var targetElement = document.getElementById('block1');
+    //    processStyleSheet();
+    displayStyle();//函数
+
+//    document.getElementById('pressme').onclick = function () {
+//        var styleDeclr = document.styleSheets[0].cssRules[0].style;
+//        styleDeclr.setProperty('background-color', 'lightgray');
+//        styleDeclr.setProperty('padding-top', '20px');
+//        styleDeclr.setProperty('color', 'black');
+//        var style = document.styleSheets[0].cssRules.item(1).style;
+//        style.color = 'black';
+//        style.paddingTop = '10px';
+//        style.paddingRight = '12px';
+//        style.paddingLeft = '5px';
+//        style.paddingBottom = '5px';
+//        targetElement.style.cssText = 'color: black';
+//        document.styleSheets[0].disabled = !document.styleSheets[0].disabled;
+//        document.styleSheets[0].cssRules.item(1).selectorText = '#block2';
+//        if (placeHolder.hasChildNodes())
+//        {
+//            var childCount = placeHolder.childNodes.length;
+//            for (var i = 0; i< childCount; i++)
+//            {
+//                placeHolder.removeChild(placeHolder.firstChild);
+//            }
+//        }
+//        displayStyle();
+//    };
+
+    function displayStyle() {//无参函数
+        if (placeHolder.hasChildNodes()) {
+            placeHolder.removeChild(placeHolder.firstChild);
+        }
+        var newElem = document.createElement('table');
+        newElem.setAttribute('border', '1');
+        var style = document.defaultView.getComputedStyle(targetElement);
+
+        addRow(newElem,'Property Count', style.length);
+        addRow(newElem, 'margin-top', style.getPropertyValue('margin-top'));
+        addRow(newElem, 'font-size', style.getPropertyValue('font-size'));
+        addRow(newElem, 'font-family', style.getPropertyValue('font-family'));
+
+//        var style = document.styleSheets[0].cssRules[0].style;
+//        for (var i = 0; i < style.length; i++)
+//        {
+//            var val = style.getPropertyCSSValue(style[i]);
+//            if (val.primitiveType == CSSPrimitiveValue.CSS_PX)
+//            {
+//                addRow(newElem, style[i], val.getFloatValue(CSSPrimitiveValue.CSS_PX), 'pixels');
+//                addRow(newElem, style[i], val.getFloatValue(CSSPrimitiveValue.CSS_PT), 'points');
+//                addRow(newElem, style[i], val.getFloatValue(CSSPrimitiveValue.CSS_IN), 'inches');
+//            }else if (val.primitiveType == CSSPrimitiveValue.CSS_RGBCOLOR)
+//            {
+//                var color = val.getRGBColorValue();
+//                addRow(newElem, style[i], color.red.cssText + ' ' + color.green.cssText + ' ' + color.blue.cssText, '(color)');
+//            }else
+//            {
+//                addRow(newElem, style[i], val.cssText, '(other');
+//            }
+//            addRow(newElem, style[i], style.getPropertyPriority(style[i]));
+//            addRow(newElem, style[i], style.getPropertyValue(style[i]));
+//        }
+//        addRow(newElem, 'border', style.getPropertyValue('border'));
+//        addRow(newElem, 'color',style.getPropertyValue('color'));
+//        addRow(newElem, 'Element CSS', targetElement.style.cssText);
+        placeHolder.appendChild(newElem);
+//        displayStyleProperties(document.styleSheets[0].cssRules.item(1).style);
+//        displayStyleProperties(document.getElementById('block2').style);
+    }
+//border: medium dashed blue; color: red; padding: 2px;
+//    function displayStyleProperties(style) {//有参函数
+//        var newElem = document.createElement('table');
+//        newElem.setAttribute('border', '1');
+//        addRow(newElem, 'border', style.border);
+//        addRow(newElem, 'color', style.color);
+//        addRow(newElem, 'padding', style.padding);
+//        addRow(newElem, 'paddingTop', style.paddingTop);
+//        placeHolder.appendChild(newElem);
+//    }
+
+//    function processStyleSheet() {
+//        var rulesList = document.styleSheets[0].cssRules;
+//        for (var i = 0; i < rulesList.length; i++) {
+//            var rule = rulesList.item(i);
+//            var newElem = document.createElement('table');
+//            newElem.setAttribute('border', '1');
+//            addRow(newElem, 'parentStyleSheet', rule.parentStyleSheet.title);
+//            addRow(newElem, 'selectorText', rule.selectorText);
+//            addRow(newElem, 'cssText', rule.cssText);
+//            placeHolder.appendChild(newElem);
+//        }
+//    }
+
+    function addRow(elem, header, value, units) {
+        elem.innerHTML += '<tr><td>' + header + ':</td><td>' + value + '</td><td>' + units + '</td></tr>';// a = a + b  -->  a += b;
+    }
+    /*var placeHolder = document.getElementById('placeholder');
+     var sheets = document.styleSheets;
+
+     for (var i = 0; i < sheets.length; i++) {
+     //        var newElem = document.createElement('table');
+     //        newElem.setAttribute('border', '1');
+     //        addRow(newElem, 'Index', i);
+     //        addRow(newElem, 'href', sheets[i].href);
+     //        addRow(newElem, 'title', sheets[i].title);
+     //        addRow(newElem, 'type', sheets[i].type);
+     //        addRow(newElem, 'ownerNode', sheets[i].ownerNode.tagName);
+     //        placeHolder.appendChild(newElem)
+     if (sheets[i].media.length > 0) {
+     var newElem = document.createElement('table');
+     newElem.setAttribute('border', '1');
+     addRow(newElem, 'Media Count', sheets[i].media.length);
+     addRow(newElem, 'Media Text', sheets[i].media.mediaText);
+     for (var j = 0; j < sheets[i].media.length; j++)
+     {
+     addRow(newElem, 'Media ' + j, sheets[i].media.item(j));
+     }
+     placeHolder.appendChild(newElem);
+     }
+     }
+
+     function addRow(elem, header, value) {
+     elem.innerHTML += '<tr><td>' + header + ':</td><td>' + value + '</td></tr>';
+     }*/
+</script>
+</body>
+</html>

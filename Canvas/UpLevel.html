@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UpLevel</title>
+    <style>
+        canvas {border: thin solid black;}
+        body > * {float: left;}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="140">
+        Cannot load;
+    </canvas>
+<script>
+
+    var ctx = document.getElementById('canvas').getContext('2d');
+    //合成782,变型785
+    //绘制文本,特效,变换,透明
+    /*
+    ctx.fillStyle = 'lightgrey';
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 3;
+
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ctx.shadowBlur = 5;
+    ctx.shadowColor = 'grey';
+
+    ctx.font = '100px sans-serif';
+    ctx.fillText('Hello', 50, 100);
+    ctx.strokeText('Hello', 50, 100);
+
+    ctx.fillStyle = 'red';
+    ctx.globalAlpha = 0.5;
+    ctx.fillRect(100, 10, 150, 100);
+*/
+    //剪辑区域
+    /*
+    ctx.fillStyle = 'yellow';
+    ctx.beginPath();
+    ctx.rect(0, 0, 500, 140);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.rect(100, 20, 300, 100);
+    ctx.clip();
+
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.rect(0, 0, 500, 140);
+    ctx.fill();
+    */
+    //贝塞尔曲线,773
+    //arc圆弧
+    /*
+    ctx.fillStyle = 'yellow';
+    ctx.lineWidth = 3;
+
+    ctx.beginPath();
+    ctx.arc(70, 70, 60, 0, Math.PI*2, true);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(200, 70, 60, Math.PI/2, true);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    var val = 0;
+    for (var i = 0; i < 4; i++) {
+        ctx.arc(350, 70, 60, val, val + Math.PI/4, false);
+        val += Math.PI/2;
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    */
+    //响应鼠标移动绘制圆弧
+    /*
+    var canvasElem = document.getElementById('canvas');
+    var ctx = canvasElem.getContext('2d');
+    var point1 = [100, 10];
+    var point2 = [200, 10];
+    var point3 = [200, 110];
+    draw();
+
+    canvasElem.onmousemove = function (e) {
+        if (e.ctrlKey) {
+            point1 = [e.clientX, e.clientY];
+        }else if (e.shiftKey) {
+            point2 = [e.clientX, e.clientY];
+        }else {
+            point3 = [e.clientX, e.clientY];
+        }
+        ctx.clearRect(0, 0, 540 ,140);
+        draw();
+    };
+
+    function draw() {
+        ctx.fillStyle = 'yellow';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 4;
+
+        ctx.beginPath();
+        ctx.moveTo(point1[0], point1[1]);
+        ctx.arcTo(point2[0], point2[1], point3[0], point3[1], 50);
+        ctx.stroke();
+
+        drawPoint(point1[0], point1[1]);
+        drawPoint(point2[0], point2[1]);
+        drawPoint(point3[0], point3[1]);
+
+        ctx.beginPath();
+        ctx.moveTo(point1[0], point1[1]);
+        ctx.lineTo(point2[0], point2[1]);
+        ctx.lineTo(point3[0], point3[1]);
+        ctx.stroke();
+    }
+
+    function drawPoint(x, y) {
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'red';
+        ctx.strokeRect(x-2, y-2, 4, 4);
+    }
+*/
+    //绘制圆弧
+    /*
+    var point1 = [100, 10];
+    var point2 = [200, 10];
+    var point3 = [200, 110];
+
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+    ctx.moveTo(point1[0], point1[1]);
+    ctx.arcTo(point2[0], point2[1], point3[0], point3[1], 100);
+    ctx.stroke();
+
+    drawPoint(point1[0], point1[1]);
+    drawPoint(point2[0], point2[1]);
+    drawPoint(point3[0], point3[1]);
+
+    ctx.beginPath();
+    ctx.moveTo(point1[0], point1[1]);
+    ctx.lineTo(point2[0], point2[1]);
+    ctx.lineTo(point3[0], point3[1]);
+    ctx.stroke();
+
+    function drawPoint(x, y) {
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'red';
+        ctx.strokeRect(x-2, y-2, 4, 4);
+    }
+    */
+    //绘制矩形
+    /*
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+    ctx.moveTo(110, 10);
+    ctx.lineTo(110, 100);
+    ctx.lineTo(10, 10);
+    ctx.closePath();
+
+    ctx.rect(110, 10, 100, 90);
+    ctx.rect(110, 100, 130, 30);
+
+    ctx.fill();
+    ctx.stroke();
+    */
+    //lineCap
+    /*
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = '2';
+    ctx.beginPath();
+    ctx.moveTo(0, 50);
+    ctx.lineTo(200, 50);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 40;
+
+    var xpos = 50;
+    var styles = ['butt', 'round', 'square'];
+
+    for (var i = 0; i < styles.length; i++) {
+        ctx.beginPath();
+        ctx.lineCap = styles[i];
+        ctx.moveTo(xpos, 50);
+        ctx.lineTo(xpos, 150);
+        ctx.stroke();
+        xpos += 50;
+    }
+*/
+    //线条绘制路径
+    /*
+    ctx.fillStyle = 'yellow';
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(110, 10);
+    ctx.lineTo(110, 120);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(150,10);
+    ctx.lineTo(200, 10);
+    ctx.lineTo(200, 120);
+    ctx.lineTo(190, 120);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(250, 10);
+    ctx.lineTo(250, 120);
+    ctx.stroke();
+    */
+</script>
+</body>
+</html>

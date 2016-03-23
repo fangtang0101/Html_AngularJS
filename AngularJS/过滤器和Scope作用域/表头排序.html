@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        ul {
+            list-style: none;
+            width: 408px;
+            margin: 0px;
+            padding: 0px;
+        }
+        ul li {
+            float: left;
+            padding: 5px 0px;
+        }
+        ul li span {
+            width: 52px;
+            float: left;
+            padding: 0px 10px;
+        }
+        ul .odd {
+            color: #0026ff;
+        }
+        ul .even {
+            color: #ff0000;
+        }
+        ul .bold {
+            font-weight: bold;
+        }
+        ul .focus {
+            background-color: #cccccc;
+        }
+    </style>
+    <title>表头排序</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <ul>
+        <li ng-class="{{bold}}">
+            <span>序号</span>
+            <span ng-click="title='name'; desc=!desc">姓名</span>
+            <span ng-click="title='sex'; desc=!desc">性别</span>
+            <span ng-click="title='age'; desc=!desc">年龄</span>
+            <span ng-click="title='score'; desc=!desc">分数</span>
+        </li>
+        <li ng-repeat="stu in data | orderBy: title : desc">
+            <span>{{$index+1}}</span>
+            <span>{{stu.name}}</span>
+            <span>{{stu.sex}}</span>
+            <span>{{stu.age}}</span>
+            <span>{{stu.score}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.bold = 'bold';
+        $scope.title = "name";
+        $scope.desc = 0;
+        $scope.data = [
+            {name: '111', sex: 'ny', age: 24, score:95},
+            {name: '222', sex: 'nan', age: 23, score:85},
+            {name: '333', sex: 'ny', age: 22, score:75},
+            {name: '444', sex: 'nan', age: 21, score:85}
+        ];
+    });
+</script>
+</body>
+</html>

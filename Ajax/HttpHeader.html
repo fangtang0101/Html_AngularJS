@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Head</title>
+    <style>
+        #allheaders, #ctheader {
+            border: medium solid black;
+            padding: 2px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button>Apples</button>
+    <button>Cherries</button>
+    <button>Bananas</button>
+</div>
+<div id="ctheader"></div>
+<div id="allheaders"></div>
+<div id="target">Press a button</div>
+<script>
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = handleButtonPress;
+    }
+
+    var httpRequest;
+    function handleButtonPress(e) {
+        httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = handleResponse;
+        httpRequest.open('GET', 'Start_' + e.target.innerHTML + '.html');
+//            httpRequest.setRequestHeader('X-HTTP-Method-Override', 'DELETE');
+//        httpRequest.setRequestHeader('Cache-Control', 'no-cache');
+        httpRequest.send();
+    }
+
+    function handleError(e) {
+        displayErrorMsg('Error event' + httpRequest.status + httpRequest.statusText);
+    }
+
+    function displayErrorMsg(src, msg) {
+        document.getElementById('errormsg').innerHTML = src + ': ' + msg;
+    }
+
+    function handleResponse() {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            document.getElementById('target').innerHTML = httpRequest.responseText;
+        }else if (httpRequest.readyState == 2) {
+            document.getElementById('allheaders').innerHTML = httpRequest.getAllResponseHeaders();
+            document.getElementById('ctheader').innerHTML = httpRequest.getResponseHeader('Content-Type');
+        }
+    }
+</script>
+</body>
+</html>

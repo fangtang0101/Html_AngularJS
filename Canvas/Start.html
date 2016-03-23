@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <style>
+        canvas {border: thin solid black; margin: 1px}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="300" preload="auto">
+        Cannot play the <code>Canvas</code> element.
+    </canvas>
+    <button id="pressme">PressMe</button>
+    <canvas id="canvas2" width="500" height="300">
+        Cannot play the <code>Canvas</code> element.
+    </canvas>
+    <!--<button>Save</button>-->
+    <!--<button>Restore</button>-->
+<img id="mouse" hidden src="headImage.png"/>
+<script>
+
+
+    var ctx = document.getElementById('canvas').getContext('2d');
+
+    //画布做画布,用渐变演示
+    /*
+    var srcCanvasElement = document.getElementById('canvas');
+    var ctx = srcCanvasElement.getContext('2d');
+    var ctx2 = document.getElementById('canvas2').getContext('2d');
+     var grad = ctx.createLinearGradient(0, 0, 500, 300);
+     grad.addColorStop(0, 'red');
+     grad.addColorStop(0.5, 'white');
+     grad.addColorStop(1, 'black');
+     ctx.fillStyle = grad;
+     ctx.fillRect(0, 0, 500, 300);
+
+    ctx2.drawImage(srcCanvasElement, 0, 0, 300, 150);
+    ctx2.strokeRect(0, 0, 300, 150);
+*/
+    //绘制图像(视频一致,具体757),一样不支持
+    /*
+    var imageElement = document.getElementById('mouse');
+    ctx.drawImage(imageElement, 10, 10);
+    ctx.drawImage(imageElement, 120, 10, 100, 120);
+    ctx.drawImage(imageElement, 20, 20. 100, 50, 250, 10, 100, 120);
+    */
+    //保存和恢复绘制状态
+    /*
+    var grad = ctx.createLinearGradient(500, 0, 500, 140);
+    grad.addColorStop(0, 'red');
+    grad.addColorStop(0.5, 'white');
+    grad.addColorStop(1, 'black');
+
+    var colors = ['black', grad, 'red', 'green', 'yellow', 'black', 'grey'];
+    var cIndex = 0;
+
+    ctx.fillStyle = colors[cIndex];
+    draw();
+
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i< buttons.length; i++) {
+        buttons[i].onclick = handleButtonPress;
+    }
+
+    function handleButtonPress(e) {
+        switch (e.target.innerHTML) {
+            case 'Save':
+                ctx.save();
+                cIndex = (cIndex + 1) % colors.length;
+                ctx.fillStyle = colors[cIndex];
+                draw();
+                break;
+            case 'Restore':
+                cIndex = Math.max(0, cIndex - 1);
+                ctx.restore();
+                draw();
+                break;
+        }
+    }
+
+    function draw() {
+        ctx.fillRect(0, 0, 500, 140);
+    }
+*/
+    //使用图像做背景,Safari不支持,其他用法与渐变一致
+    /*
+    var imageElem = document.getElementById('mouse');
+    var pattern = ctx.createPattern(imageElem, 'repeat');
+    ctx.fillStyle = pattern;
+    ctx.fillRect(0, 0, 500, 140);
+    */
+    //径向渐变
+    /*
+    //径向渐变
+    var grad = ctx.createRadialGradient(250, 70, 20, 200, 60, 100);
+    grad.addColorStop(0, 'red');
+    grad.addColorStop(0.5, 'white');
+    grad.addColorStop(1, 'black');
+    ctx.fillStyle = grad;
+    ctx.fillRect(150, 20, 75, 50);
+
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = grad;
+    ctx.strokeRect(250, 20, 75, 50);
+//    ctx.fillRect(0, 0, 500, 140);
+    */
+    //线性渐变
+    /*
+    var grad = ctx.createLinearGradient(10, 10, 60, 60);
+    grad.addColorStop(0, 'red');
+    grad.addColorStop(0.5, 'white');
+    grad.addColorStop(1, 'black');
+    ctx.fillStyle = grad;
+//    ctx.fillRect(10, 10, 100, 150);
+    ctx.fillRect(0, 0, 500, 140);
+    */
+    //填充
+    /*
+    ctx.lineWidth = 2;
+    ctx.strokeRect(10, 10, 50, 50);
+    ctx.lineWidth = 4;
+    ctx.lineJoin = 'round';
+    ctx.fillStyle = 'red';
+    ctx.strokeRect(70, 10, 50, 50);
+    ctx.lineWidth = 6;
+    ctx.lineJoin = 'bevel';
+    ctx.strokeStyle = 'rgb(200, 200, 200)';
+    ctx.strokeRect(130, 10, 50, 50);
+    ctx.lineJoin = 'miter';
+    ctx.strokeRect(190, 10, 50, 50);
+*/
+    //绘制
+    /*
+    var offset = 10;
+    var size = 50;
+    var count = 5;
+
+    for (var i = 0; i < count; i++) {
+        ctx.fillRect(i * (offset + size) + offset, offset, size, size);
+        ctx.strokeRect(i * (offset + size) + offset, (2* offset) + size, size, size);
+        ctx.clearRect(i * (offset + size) + offset, offset + 5, size, size -10);
+    }
+*/
+//    ctx.fillRect(10,10,50,50);
+</script>
+</body>
+</html>

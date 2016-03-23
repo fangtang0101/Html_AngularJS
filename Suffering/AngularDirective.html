@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directive</title>
+    <script src="angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <hello></hello>
+    </div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('hello', function () {//替换标签
+        return {
+            restrict: 'AE',
+            replace: true,
+            template: '<div>hello div</div>'
+        }
+    });
+</script>
+</body>
+</html>

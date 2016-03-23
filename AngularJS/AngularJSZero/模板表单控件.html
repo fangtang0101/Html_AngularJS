@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <title>模板表单控件</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        input {
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <form name="tempForm" ng-submit="save()" ng-controller="ctrl">
+        <div>
+            <input type="text" name="tName" ng-model="name" required/>
+            <span ng-show="tempForm.tName.$error.required">姓名不能为空!</span>
+        </div>
+        <div>
+            <input type="email" name="tEmail" ng-model="email" required/>
+            <!--死属性,多用记下即可-->
+            <span ng-show="tempForm.tEmail.$error.required">邮件不能为空!</span>
+            <span ng-show="tempForm.tEmail.$error.email">邮件格式不对!</span>
+        </div>
+        <!--ng-disabled="tempForm.$invalid"不可用性与表单是否验证成功绑定-->
+        <input type="submit" ng-disabled="tempForm.$invalid" value="提交"/>
+    </form>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.name = 'Zwei';
+        $scope.email = '334091456@qq.com';
+        $scope.save = function() {
+            console.log('提交成功!');
+        };
+    });
+</script>
+</body>
+</html>

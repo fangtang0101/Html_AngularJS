@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>容错性</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <dic ng-controller="ctrl">
+        <span>{{temp}}</span>
+        <button ng-click="error()">单机</button>
+    </dic>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.temp = 'angular';
+        $scope.error = function () {
+            console.log(tmp);
+        }
+    });
+</script>
+</body>
+</html>

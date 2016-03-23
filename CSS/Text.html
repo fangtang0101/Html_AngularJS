@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text</title>
+    <style>
+        /*#fruittext {*/
+            /*width: 400px;*/
+            /*margin: 5px;*/
+            /*padding: 5px;*/
+            /*border: medium double black;*/
+            /*background: lightgray;*/
+            /*white-space: pre-line;*/
+            /*direction: ltr;*/
+            /*word-spacing: 10px;*/
+            /*letter-spacing: 2px;*/
+            /*line-height: 3em;*/
+            /*word-wrap: break-word;*/
+            /*float: left;*/
+            /*text-indent: 15%;*/
+        /*}*/
+
+        /*#fruittext2 {*/
+            /*width: 400px;*/
+            /*margin: 5px;*/
+            /*padding: 5px;*/
+            /*border: medium double black;*/
+            /*background: lightgray;*/
+            /*white-space: pre-line;*/
+            /*direction: rtl;*/
+            /*word-wrap: normal;*/
+        /*}*/
+
+        h1 {
+            text-shadow: 0.1em .1em lightgrey;
+            font-family: "HelveticanEUE condensed", monospace;
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        p {
+            /*border: medium double black;*/
+            /*background: lightgray;*/
+            /*text-decoration: line-through;*/
+            /*text-transform: uppercase;*/
+            text-shadow: 5px 5px 20px black;
+            font-size: xx-small;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<h1>
+    I im h111111111.
+</h1>
+    <p id="fruittext">
+        网上有的写的是人脸识别,了解了下发现CoreImage中的算          不上人脸识别,<span>也只是检测下人脸的位置,</span>
+        眼睛、嘴巴、是否微笑等,并不能           识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+        用自己素颜图(儿童不宜,戴墨镜观看防止        亮瞎眼)试了下还算OK。
+    </p>
+    <!--<p id="fruittext2">-->
+        <!--网上有的写的是人脸识别,了解了下发现CoreImage中的算          不上人脸识别,<span>也只是检测下人脸的位置,</span>-->
+        <!--眼睛、嘴巴、是否微笑等,并不能           识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.-->
+        <!--用自己素颜图(儿童不宜,戴墨镜观看防止        亮瞎眼)试了下还算OK。-->
+    <!--</p>-->
+<p>
+    <button>Start</button>
+    <button>End</button>
+    <button>Left</button>
+    <button>Right</button>
+    <button>Center</button>
+    <button>Justify</button>
+</p>
+<script>
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i < buttons.length; i++)
+    {
+        buttons[i].onclick = function(e)
+        {
+            document.getElementById('fruittext').style.textAlign = e.target.innerHTML;
+        }
+    }
+</script>
+</body>
+</html>

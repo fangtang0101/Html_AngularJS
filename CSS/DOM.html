@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+        pre {border: medium double black;}
+    </style>
+</head>
+<body>
+<pre id="results"></pre>
+<!--<img id="lemon" class="fruits" src="headImage.png" alt="lemon"/>-->
+<p id="fruittext">
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span id="banana">也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+<p id="apples">
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、<span>是否微笑等</span>,并不能识别出是<span>不是同一个人</span>。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+<p id="paratext">
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+    <!--<img src="headImage.png" alt="apple"/>-->
+</p>
+<img id="apple" name="apple" class="fruits" src="headImage.png" alt="apple"/>
+
+<button id="parent">Parent</button>
+<button id="child">Child</button>
+<button id="prev">Prev Sibling</button>
+<button id="next">Next Sibling</button>
+
+<script>
+    var resultsElement = document.getElementById('results');
+    var element = document.body;
+
+    var buttons = document.getElementsByTagName('button');
+    for (var i =0; i < buttons.length; i++) {
+        buttons[i].onclick = handleButtonClick;
+    }
+
+    processNewElement(element);
+
+    function handleButtonClick(e) {
+        if (element.style)
+        {
+            element.style.backgroundColor = 'white';
+        }
+
+        if (e.target.id == 'parent' && element != document.body) {
+            element = element.parentNode;
+        }else if (e.target.id == 'child' && element.hasChildNodes()) {
+            element = element.firstChild;
+        }else if (e.target.id == 'prev' && element.previousSibling) {
+            element = element.previousSibling;
+        }else if (e.target.id == 'next' && element.nextSibling) {
+            element = element.nextSibling;
+        }
+    }
+
+    function processNewElement(elem) {
+        resultsElement.innerHTML = "Element type: " + elem + "\n";
+        resultsElement.innerHTML += "Element id:" + elem.id + "\n";
+        resultsElement.innerHTML += "Has child nodes: " + elem.hasChildNodes() + "\n";
+        if (elem.previousSibling) {
+            resultsElement.innerHTML += "Prev sibling is: " + elem.previousSibling + "\n";
+        }else {
+            resultsElement.innerHTML = "No prev sibling\n";
+        }
+        if (elem.nextSibling) {
+            resultsElement.innerHTML += "Next sibling is:" + elem.nextSibling + "\n";
+        }else {
+            resultsElement.innerHTML += "No next sibling\n";
+        }
+    }
+
+    /*链式搜索*/
+//    var resultsElement = document.getElementById('results');
+//    var elems = document.getElementById('apples').getElementsByTagName('span');
+//    resultsElement.innerHTML += "There are " + elems.length + " spa elements\n";
+//
+//    var elems2 = document.getElementById('apples').querySelectorAll('span');
+//    resultsElement.innerHTML += "There are " + elems2.length + " spa elements(Mix)\n";
+//
+//    var elems3 = document.querySelectorAll('#apples > span');
+//    resultsElement.innerHTML += "There are " + elems3.length + " spa elements(CSS)\n";
+
+//    var resultsElement = document.getElementById('results');
+//    var elems = document.querySelectorAll('p, img#apple');
+//    resultsElement.innerHTML += "The selector matched " + elems.length + " elements\n";
+//    var pEles = document.getElementsByTagName('p');
+//    resultsElement.innerHTML += "There are " + pEles.length + " p elements\n";
+//
+//    var fruitsElems = document.getElementsByClassName('fruits');
+//    resultsElement.innerHTML += "There are " + fruitsElems.length + " elements in the fruits class\n";
+//
+//    var nameElems = document.getElementsByName('apple');
+//    resultsElement.innerHTML += "There are " + nameElems.length + " elements with the name 'apple'";
+//    var resultsElement = document.getElementById('results');
+//    var elems = document.apple;
+//    if(elems.namedItem) {
+//        for(var i = 0; i < elems.length; i++) {
+//            resultsElement.innerHTML += "Image Element:" + elems[i].id + "\n";
+//        }
+//    }else {
+//        resultsElement.innerHTML += "Src for apple element is: " + elems.src + "\n";
+//    }
+//
+//    document.writeln(elems.length);
+//    var elems = document.images;
+//    for (var i = 0; i < elems.length; i++) {
+//        resultsElement.innerHTML += "Image Element:" + elems[i].id + "\n";
+//    }
+//    var srcValue = elems.namedItem('apple').src;
+//    resultsElement.innerHTML += "Src for apple element is: " + srcValue + "\n";
+//    document.writeln("<pre>url:" + document.url);
+//    var elems = document.getElementsByTagName("p");
+//    for (var i = 0;i < elems.length; i++)
+//    {
+//        document.writeln("Element ID:" + elems[i].id);
+//        elems[i].style.border = "medium double black";
+//        elems[i].style.padding = "4px";
+//    }
+//    document.write("<pre>")
+//    var images;
+//    if (document.querySelectorAll) {
+//        images = document.querySelectorAll('#paratext > img');
+//    }else {
+//        images = document.getElementById('paratext').getElementsByTagName('img');
+//    }
+//
+//    for (var i = 0; i < images.length; i++) {
+//        images[i].style.border = 'thick solid black';
+//        images[i].style.padding = '4px';
+//    }
+
+//    document.writeln("<pre>");
+//    document.writeln("charset:" + document.charset);
+//    document.writeln("compatMode:" + document.compatMode);
+//    document.writeln("defaultCharset:" + document.defaultCharset);
+//    document.writeln("dir:" + document.dir);
+//    document.writeln("domain:" + document.domain);
+//    document.writeln("lastModified:" + document.lastModified);
+//    document.writeln("referrer:" + document.referrer);
+//    document.writeln("title:" + document.title);
+//
+//    document.writeln("");
+//    document.writeln("Location");
+//    document.writeln("protocol:" + document.location.protocol);
+//    document.writeln("host:" + document.location.host);
+//    document.writeln("hostname:" + document.location.hostname);
+//    document.writeln("port:" + document.location.port);
+//    document.writeln("pathname:" + document.location.pathname);
+//    document.writeln("search:" + document.location.search);
+//    document.writeln("hash:" + document.location.hash);
+//
+//    document.write("</pre>")
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <title>构建模板内容</title>
+</head>
+<body>
+<!--type类型,id用于本页面内部引用-->
+<script type="text/ng-template" id="tplbase">
+    姓名:{{ name }},<br/>邮箱:{{email}}
+</script>
+<!--ng-include必须的,src引用-->
+<div ng-include src="'tplbase'" ng-controller="ctrl"></div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.name = 'Zwei';
+        $scope.email = '334091456@qq.com';
+    });
+</script>
+</body>
+</html>

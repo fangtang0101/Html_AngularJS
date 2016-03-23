@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <title>控制器初始化$scope</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <span>{{text}}</span>
+    <br/>
+    <span class="show">{{span_show()}}</span>
+    <br/>
+    <input type="button" id="buttonShow" ng-click="clickShow()" value="显示"/>
+    <br/>
+    <input type="button" id="buttonPara" ng-click="clickPara('点击了带参数按钮')" value="带参数显示"/>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function($scope) {
+        $scope.text = 'Hello! Angular.';
+        $scope.span_show = function() {
+//            $scope.text = '欢迎来到AngularJS';
+            return $scope.text;
+        };
+        $scope.clickShow = function () {
+            $scope.text = '单击后显示的内容';
+        };
+        $scope.clickPara = function (ptext) {
+            $scope.text = ptext;
+        }
+    });
+</script>
+</body>
+</html>

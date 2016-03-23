@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Include</title>
+</head>
+<body>
+    <h3>Users</h3>
+
+    <table class="table table-striped">
+        <thead><tr>
+            <th>Edit</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+        </tr></thead>
+        <tbody><tr ng-repeat="user in users">
+            <td>
+                <button class="btn" ng-click="editUser(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>编辑
+                </button>
+            </td>
+            <td>{{user.fName}}</td>
+            <td>{{user.lName}}</td>
+        </tr> </tbody>
+    </table>
+</body>
+</html>

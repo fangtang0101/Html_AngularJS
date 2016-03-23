@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>使用factory方法自定义服务</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="show">{{str('我是服务返回的内容')}}</div>
+    <div class="show">{{name(1)}}</div>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app
+            .factory('$outfun', function () {
+                return {
+                    str: function (s) {
+                        return s;
+                    }
+                };
+            })
+            .factory('$outarr', function () {
+                return ['张三', '李四', '王二']
+            })
+            .controller('ctrl', function ($scope, $outfun, $outarr) {
+                $scope.str = function (n) {
+                    return $outfun.str(n);
+                };
+                $scope.name = function (n) {
+                    return $outarr[n];
+                }
+            })
+</script>
+</body>
+</html>

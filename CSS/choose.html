@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose</title>
+    <style type="text/css">
+        /*[lang|="en"] {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*a, [lang|="en"] {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*p span {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*#mytable td {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*body > * >span, tr > th {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*p + a {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*p ~ a {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*p::first-line {*/
+        /*background-color: grey;*/
+        /*color: white;*/
+        /*}*/
+
+        /*::first-line {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*:root {*/
+        /*border: thin black solid;*/
+        /*color: white;*/
+        /*}*/
+
+        /*:first-child {*/
+        /*border: thin black solid;*/
+        /*color: white;*/
+        /*}*/
+
+        /*p > span:first-child {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*:last-child {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*:only-child {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*:only-of-type {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*body > :nth-child(2) {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*:enabled {*/
+        /*border: thin black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*:checked + span {*/
+        /*background-color: red;*/
+        /*color: white;*/
+        /*border: medium black solid;*/
+        /*padding: 4px;*/
+        /*}*/
+
+        /*:default {*/
+        /*outline: medium solid red;*/
+        /*}*/
+        /*:invalid {*/
+        /*outline: medium solid red;*/
+        /*}*/
+
+        /*:valid {*/
+        /*outline: medium solid green;*/
+        /*}*/
+
+        /*:in-range {*/
+        /*outline: medium solid green;*/
+        /*}*/
+
+        /*:out-of-range {*/
+        /*outline: medium solid red;*/
+        /*}*/
+
+        /*:required {*/
+            /*outline: medium solid green;*/
+        /*}*/
+
+        /*:optional {*/
+            /*outline: medium solid red;*/
+        /*}*/
+
+        /*:link {*/
+            /*border: thin black solid;*/
+            /*background-color: lightgrey;*/
+            /*padding: 4px;*/
+            /*color: red;*/
+        /*}*/
+
+        /*:visited {*/
+            /*background-color: red;*/
+            /*color: white;*/
+        /*}*/
+
+        /*:hover {*/
+            /*border: thin black solid;*/
+            /*padding: 4px;*/
+        /*}*/
+
+        /*:active {*/
+            /*border: thin black solid;*/
+            /*padding: 4px;*/
+        /*}*/
+
+        /*:focus {*/
+            /*border: thin black solid;*/
+            /*padding: 4px;*/
+        /*}*/
+
+        /*a:not([href*='apple']) {*/
+            /*border: thin black solid;*/
+            /*padding: 4px;*/
+        /*}*/
+
+        /*:lang(en) {*/
+            /*border: thin black solid;*/
+            /*padding: 4px;*/
+        /*}*/
+
+        :target {
+            border: thin black solid;
+            padding: 4px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a lang="en-us" href="http://apple.com/">Visit apple website.</a>
+    <p id="mytarget">I like <span lang="en-uk">apple and</span> apple.</p>
+    <a id="qq" lang="en" href="http://qq.com/">Visit the baidu</a>
+
+<!--
+    Name:<input type="text" name="name"/>
+    <p>
+        City:<input type="text" name="city"/>
+    </p>
+    <input type="submit"/>
+<p>
+        <label for="price">
+        $Per unit in your area:
+        <input required type="number" min="0" max="100" value="1" id="price" name="price"/>
+        <label/>
+        <br>
+
+        <label for="price2">
+            $Per unit in your area:
+            <input type="number" min="0" max="100" value="1" id="price2" name="price2"/>
+            <br>
+        </label>
+        <label for="name">Name: <input required id="name" name="name"/></label><br>
+        <label for="city">City: <input required id="city" name="city"/></label>
+</p>
+
+<p>
+    <label for="apples">Do you like apples: </label>
+    <input type="checkbox" id="apples" name="apples"/>
+    <span>This will go red when checked</span>
+</p>
+<input type="submit" value="labelSubmit"><br>
+<button type="submit" value="submit">SubmitButton</button>
+<button type="reset">Reset</button>
+<button value="Submit">submit</button>
+
+<textarea>This is an enable textarea.</textarea>
+<textarea disabled>This is an disable textarea.</textarea>
+
+<table id="mytable">
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+    <tr>
+        <td>Zwei</td>
+        <td>China</td>
+    </tr>
+</table>
+<p>I like <span lang="en-uk" class="class2">apples</span> and oranges</p>
+<table id="mytable2">
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+    <tr>
+        <td>Zwei2</td>
+        <td>China</td>
+    </tr>
+</table>
+
+<a lang="en-us" id="apressanchor" class="class1 class2" href="http://apple.com/">Visit the apple website</a>
+
+<p>I like <span lang="en-gb" class="class2">apples</span> and oranges</p>
+<a lang="en" id="iamId" href="http://baidu.com/">Visit baidu website</a><br>
+<a lang="en" id="iamId2" href="http://baidu.com/">Visit baidu website</a>
+-->
+</body>
+</html>

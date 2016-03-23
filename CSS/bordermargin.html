@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BM</title>
+    <style type="text/css">
+        /*p {*/
+            /*border-width: 5px;*/
+            /*border-style: solid;*/
+            /*border-color: black;*/
+            /*border-left-width: 10px;*/
+            /*border-left-style: dotted;*/
+            /*border-top-width: 10px;*/
+            /*border-top-style: dotted;*/
+            /*border: medium solid black;*/
+            /*border-top: solid 10px;*/
+            /*border-top-left-radius: 20px 15px;*/
+            /*-webkit-border-image: url("headImage.png")30 / 50px;*/
+            /*-moz-border-image: url("headImage.png")30 / 50px round repeat;*/
+            /*-o-border-image: url("headImage.png")30 / 50px;*/
+            /*border: 10px double black;*/
+            /*background-color: lightgrey;*/
+            /*background-image: url("headImage.png");*/
+            /*background-size: 40px 40px;*/
+            /*background-repeat: repeat;*/
+            /*background-origin: border-box;*/
+            /*background-clip: content-box;*/
+            /*background: lightgray top right no-repeat border-box content-box local url("headImage.png");*/
+            /*box-shadow: 5px 4px 10px 2px gray, 4px 4px 6px 6px gray inset;*/
+            /*width: 30%;*/
+            /*padding: 5px;*/
+            /*border: medium double black;*/
+            /*background-color: lightgray;*/
+            /*margin: 2px;*/
+            /*float: left;*/
+        /*}*/
+        /*#first {*/
+            /*outline: thick solid red;*/
+        /*}*/
+
+        /*/!*#first {*!/*/
+        /*/!*border-radius: 20px / 15px;*!/*/
+        /*/!*}*!/*/
+
+        /*tr > th {*/
+            /*text-align: left;*/
+            /*background: lightgray;*/
+            /*color: gray;*/
+        /*}*/
+
+        /*tr > th:only-of-type {*/
+            /*text-align: right;*/
+            /*background: lightgray;*/
+            /*color: gray;*/
+        /*}*/
+        p {
+            /*border: medium solid black;*/
+            display: inline;
+        }
+
+        span {
+            display: run-in;
+            border: medium double black;
+            /*margin: 2em;*/
+            /*width: 10em;*/
+            /*height: 2em;*/
+        }
+    </style>
+</head>
+<body>
+<span>
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。
+</span>
+
+<p>
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,<span>也只是检测下人脸的位置,</span>
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。
+</p>
+
+<!--
+    <table>
+        <tr>
+            <th>Rank</th><th>Name</th><th>Color</th><th>Size</th>
+        </tr>
+        <tr id="firstchoice">
+            <th>Favorite:</th><td>Apples</td><td>Green</td><td>Medium</td>
+        </tr>
+        <tr>
+            <th>2nd Favorite:</th><td>Oranges</td><td>Orange</td><td>Large</td>
+        </tr>
+    </table>
+
+    <p>
+        <button>Visible</button>
+        <button>Collapse</button>
+        <button>Hidden</button>
+    </p>
+
+    <script>
+        var buttons = document.getElementsByTagName('BUTTON');
+        for (var i = 0; i < buttons.length; i++)
+        {
+            buttons[i].onclick = function(e) {
+                document.getElementById('firstchoice').style.visibility = e.target.innerHTML;
+            }
+        }
+    </script>
+
+<p id="first1">
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。
+</p>
+<p id="first">
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。
+</p>
+<p id="first2">
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼)试了下还算OK。
+</p>
+<button>Outline off</button>
+<button>Outline on</button>
+<script>
+    var buttons = document.getElementsByTagName('BUTTON');
+    for (var i = 0; i < buttons.length; i++) {
+        var elem = document.getElementById('first');
+        if (e.target.innerHTML == 'Outline off') {
+            elem.style.outline = 'none';
+        }else {
+            elem.style.outlineColor = 'red';
+            elem.style.outlineStyle = 'solid';
+            elem.style.outlineWidth = 'thick';
+        }
+    }
+</script>-->
+</body>
+</html>

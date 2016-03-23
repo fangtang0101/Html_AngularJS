@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+    <style>
+        /*table { border-collapse: collapse; border: thin solid black;}*/
+        /*th, td { padding: 4px;}*/
+        * { margin: 2px; padding: 4px; border-collapse: collapse}
+    </style>
+</head>
+<body id="bod">
+    <table border="1">
+        <tr><th>Name:</th><td id="name"></td></tr>
+        <tr><th>Color:</th><td id="color"></td></tr>
+        <tr><th>Size:</th><td id="size"></td></tr>
+        <tr><th>State:</th><td id="state"></td></tr>
+        <tr><th>Event:</th><td id="event"></td></tr>
+    </table>
+<button id="banana">Banana</button>
+<button id="apple">Apple</button>
+    <script type="text/javascript">
+        if (window.history.state) {
+            displayState(window.history.state);
+            document.getElementById('state').innerHTML = 'YES'
+        }else {
+            document.getElementById('state').innerHTML = 'No selection'
+        }
+
+        window.onpopstate = function(e) {
+            displayState(e.state);
+            document.getElementById('event').innerHTML = 'YES'
+        };
+
+        var buttons = document.getElementsByTagName('button');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = function(e) {
+                var stateObj;
+                if (e.target.id == 'banana')
+                {
+                    stateObj = {
+                        name:'banana',
+                        color:'yellow',
+                        size:'large'
+                    }
+                }else {
+                    stateObj = {
+                        name:'apple',
+                        color:'red',
+                        size:'medium'
+                    }
+                }
+                window.history.pushState(stateObj, '');
+                displayState(stateObj)
+            }
+        }
+
+        function displayState(stateObj){
+            document.getElementById('name').innerHTML = stateObj.name;
+            document.getElementById('color').innerHTML = stateObj.color;
+            document.getElementById('size').innerHTML = stateObj.size
+        }
+    </script>
+
+
+
+<!--
+<p>
+    网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。网上有的写的是人脸识别,了解了下发现CoreImage中的算不上人脸识别,也只是检测下人脸的位置,
+    眼睛、嘴巴、是否微笑等,并不能识别出是不是同一个人。这个参考了博客http://blog.csdn.net/wildfireli/article/details/7164628.
+    用自己素颜图(儿童不宜,戴墨镜观看防止亮瞎眼,试了下还算OK。
+</p>
+
+    <table border="1">
+        <tr><th>outerWidth:</th><td id="ow"></td><th>outerHeight:</th><td id="oh"></td></tr>
+        <tr><th>innerWidth:</th><td id="iw"></td><th>innerHeight:</th><td id="ih"></td></tr>
+        <tr><th>screen.width:</th><td id="sw"></td><th>screen.height:</th><td id="sh"></td></tr>
+        <!--<tr><th>outerHeight:</th><td id="oh"></td></tr>
+    </table>
+
+<button id="scroll">Scroll</button>
+<button id="print">Print</button>
+<button id="close">Close</button>
+
+<button>Alert</button>
+<button>Confirm</button>
+<button>Prompt</button>
+<button>Modal Dialog</button>
+
+<button>Back</button>
+<button>Forward</button>
+<button>Go</button>
+
+<p id="msg"></p>
+<button id="banana">Banana</button>
+<button id="apple">Apple</button>
+<script type="text/javascript">
+    -->
+
+<!--//    var sel = "No selection made";-->
+<!--//    if (location.search == '?banana') {-->
+<!--//        sel = "Selection: Banana"-->
+<!--//    }else if (window.location.search == '?apple') {-->
+<!--//        self = "Selection: Apple"-->
+<!--//    }-->
+<!--//    document.getElementById('msg').innerHTML = sel;-->
+<!--//-->
+<!--//    var buttons = document.getElementsByTagName('button');-->
+<!--//    for (var i = 0; i < buttons.length; i++) {-->
+<!--////        buttons[i].onclick = handleButtonPress;-->
+<!--////        buttons[i].id = i;-->
+<!--//        buttons[i].onclick = function (e) {-->
+<!--//            document.getElementById('msg').innerHTML = e.target.innerHTML;-->
+<!--//            history.pushState('', '', 'Window_otherPage.html?' + e.target.id)-->
+<!--//        }-->
+<!--//    }-->
+<!--//-->
+<!--//    function handleButtonPress(e) {-->
+<!--//        if (e.target.id == 0) {-->
+<!--//            history.back()-->
+<!--//        }else if (e.target.id == 1) {-->
+<!--//            history.forward()-->
+<!--//        }else if (e.target.id == 2) {-->
+<!--//            history.go(-1)-->
+<!--//        }-->
+
+<!--//        if (e.target.id == '0') {-->
+<!--//            window.alert("this is alert")-->
+<!--//        }else if(e.target.id == '2') {-->
+<!--//            var response = window.prompt("enter a word", "hello");-->
+<!--//            alert("the word was " + response)-->
+<!--//        }else if(e.target.id == '1') {-->
+<!--//            var confirmed = window.confirm("this is a confirm - do you want to proceed?");-->
+<!--//            alert("confirmed?" + confirmed)-->
+<!--//        }else {-->
+<!--//            showModalDialog("http://baidu.com/")-->
+<!--//        }-->
+
+<!--//        if (e.target.id == 'scroll') {-->
+<!--//            window.scrollTo(0, 400);-->
+<!--//        }else if (e.target.id == 'print') {-->
+<!--//            window.print();-->
+<!--//        }else {-->
+<!--//            window.close();-->
+<!--//        }-->
+    <!--}-->
+
+    <!--document.getElementById('ow').innerHTML = window.outerWidth;-->
+    <!--document.getElementById('oh').innerHTML = document.defaultView.outerHeight;-->
+    <!--document.getElementById('iw').innerHTML = window.innerWidth;-->
+    <!--document.getElementById('ih').innerHTML = window.innerHeight;-->
+    <!--document.getElementById('sw').innerHTML = window.screen.width;-->
+    <!--document.getElementById('sh').innerHTML = window.screen.height;-->
+<!--</script>-->
+</body>
+</html>

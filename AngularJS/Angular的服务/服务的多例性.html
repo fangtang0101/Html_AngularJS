@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>服务的多例性</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="show">编号:{{stu.code}}</div>
+    <div class="show">姓名:{{stu.name}}</div>
+    <div class="show">分数:{{stu.score}}</div>
+    <button ng-click="reset()">重置</button>
+</div>
+<div ng-controller="ctrl_1">
+    <div class="show">编号:{{stu.code}}</div>
+    <div class="show">姓名:{{stu.name}}</div>
+    <div class="show">分数:{{stu.score}}</div>
+</div>
+<script>
+    function student(json) {
+        angular.extend(this, json);
+        this.reset = function () {
+            this.code = 1000;
+            this.name = "Zweo";
+            this.score = 0;
+        }
+    }
+
+    student.create = function () {
+        return new student({
+            code: 1001,
+            name: 'Zwei1',
+            score: 98
+        })
+    }
+
+    var app = angular.module('app', []);
+    app.factory('$student', function () {
+        return {
+            create: student.create
+        }
+    })
+    app.controller('ctrl', function ($scope, $student) {
+        $scope.stu = $student.create();
+        $scope.reset = function () {
+            $scope.stu.reset();
+        }
+    });
+    app.controller('ctrl_1', function ($scope, $student) {
+        $scope.stu = $student.create();
+    })
+</script>
+</body>
+</html>

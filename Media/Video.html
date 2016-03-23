@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video</title>
+    <style>
+        table {border: thin solid black; border-collapse: collapse;}
+        th, td {padding: 3px 4px;}
+        body > * {float: left; margin: 2px;}
+    </style>
+</head>
+<body>
+<video id="media" src="http://v.qq.com/iframe/player.html?vid=t0168zyns08" width="500" height="500" autoplay controls
+       preload="none" poster="headImage.png">Video cannot play.
+</video>
+<!--<iframe src="http://v.qq.com/iframe/player.html?vid=t0168zyns08" width="500" height="500"></iframe>-->
+<table id="info" border="1">
+    <tr><th>Property</th><th>Value</th></tr>
+</table>
+
+<script>
+    var mediaElem = document.getElementById('media');
+    var tableElem = document.getElementById('info');
+
+    var propertyNames = ['autoplay', 'currentScr', 'controls', 'loop', 'muted', 'preload', 'src', 'volume'];
+
+    var mediaTypes = ['vedio/webm', 'video/ogv', 'video/mp4'];
+    for (var i = 0; i < propertyNames.length; i++) {
+        tableElem.innerHTML += '<tr><td>' + propertyNames[i] + '</td><td>' + mediaElem[propertyNames[i]] + '</td></tr>';
+    }
+
+    for (var i = 0; i < mediaTypes.length; i++) {
+        tableElem.innerHTML += '<tr><td>' + mediaTypes[i] + '</td><td>' + mediaElem.canPlayType(mediaTypes[i]) + '</td></tr>';
+    }
+</script>
+</body>
+</html>

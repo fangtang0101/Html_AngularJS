@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularTest</title>
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="oneCtrl">
+            {{name}}
+            {{age}}
+            <div ng-controller="oneChildCtrl">
+                {{name}}
+                {{age}}
+            </div>
+        </div>
+
+        <div ng-controller="twoCtrl">
+            {{name}}
+            {{age}}
+        </div>
+    </div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.run(['$rootScope', function($rootScope) {
+        $rootScope.name = 'Zwei';
+    }]);
+    console.log(app);
+
+    //依赖注入代码压缩
+    /*
+    app.controller('oneCtrl',['$scope', function($scope) {
+        $scope.name = 'Zwei';
+    }]);
+
+    app.controller('oneChildCtrl',['$scop', function($scop) {
+        $scop.name = 'Zhao';
+    }]);
+    */
+
+/*
+    app.controller('oneCtrl', function($scope, $rootScope) {
+        $scope.name = 'Zwei';
+        $rootScope.age = '20';
+    });
+
+    app.controller('oneChildCtrl', function($scope) {
+        $scope.name = 'Zhao'
+        $scope.age = '21';
+    })
+
+    app.controller('twoCtrl', function($scope) {
+        $scope.age = '18';
+    });
+    */
+</script>
+</body>
+</html>

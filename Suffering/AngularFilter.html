@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+</head>
+<body>
+1. Angularjs filter 过滤器
+1. uppercase,lowercase 大小转换
+2. json 格式化
+3. date 格式化
+4. number 格式化
+5. currency 货币格式化
+(IT 营)
+￼￼￼￼￼￼{{ "lower cap string" | uppercase }} //结果:LOWER CAP STRING {{ "TANK is GOOD" | lowercase }} //结果:tank is good
+￼￼￼￼￼￼￼￼{{ {foo: "bar", baz: 23} | json }} //结果:{ "foo": "bar", "baz": 23 }
+￼￼￼￼￼￼{{ 1304375948024 | date }}
+{{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }} {{ 1304375948024 | date:"yyyy-MM-dd hh:mm:ss" }}
+//结果:May 3, 2011 //结果:05/03/2011 @ 6:39AM
+//结果:2011-05-03 06:39:08
+￼￼￼￼￼￼{{ 1.234567 | number:1 }} //结果:1.2
+{{ 1234567 | number }} //结果:1,234,567
+￼￼￼￼￼￼￼￼{{ 250 | currency }} //结果:$250.00
+{{ 250 | currency:"RMB ¥ " }} //结果:RMB ¥ 250.00
+￼￼6. filter 查找
+￼￼￼￼￼{{ [{"age": 20,"id": 10,"name": "iphone"}, {"age": 12,"id": 11,"name": "sunm xing"}, {"age": 44,"id": 12,"name": "test abc"}
+] | filter:'s'}} //查找含有有 s 的行
+//上例结果:[{"age":12,"id":11,"name":"sunm xing"},{"age":44,"id":12,"name":"test abc"}]
+{{ [{"age": 20,"id": 10,"name": "iphone"},
+{"age": 12,"id": 11,"name": "sunm xing"},
+{"age": 44,"id": 12,"name": "test abc"}
+] | filter:{'name':'iphone'} }} //查找 name 为 iphone 的行
+//上例结果:[{"age":20,"id":10,"name":"iphone"}]
+￼7. limitTo 字符串,对像的截取
+￼￼￼￼￼{{ "i love tank" | limitTo:6 }} //结果:i love {{ "i love tank" | limitTo:-4 }} //结果:tank
+{{ [{"age": 20,"id": 10,"name": "iphone"},
+{"age": 12,"id": 11,"name": "sunm xing"},
+{"age": 44,"id": 12,"name": "test abc"}
+] | limitTo:1 }} //结果:[{"age":20,"id":10,"name":"iphone"}]
+￼8. orderBy 对象排序
+￼￼￼￼￼{{ [{"age": 20,"id": 10,"name": "iphone"}, {"age": 12,"id": 11,"name": "sunm xing"}, {"age": 44,"id": 12,"name": "test abc"}
+] | orderBy:'id':true }} //根 id 降序排
+{{ [{"age": 20,"id": 10,"name": "iphone"}, {"age": 12,"id": 11,"name": "sunm xing"}, {"age": 44,"id": 12,"name": "test abc"}
+] | orderBy:'id' }} //根据 id 升序排
+￼2. 控制器使用 filter
+￼￼￼￼￼￼￼$scope.name = $filter('date')('236478234','hh'); $scope.name = $filter('uppercase')('hello');
+￼3. Angularjs 自定义 filter 过滤器
+1. filters.js 添加一个 module
+查看复制打印?
+angular.module('tanktest', []).filter('tankreplace', function() {
+return function(input) {
+return input.replace(/tank/, "=====")
+}; });
+2.app.js 中加载这个 module
+查看复制打印?
+var phonecatApp = angular.module('phonecatApp', [
+'ngRoute', 'phonecatControllers', 'facebookControllers', 'tanktest'
+]);
+3.html 中调用
+查看复制打印?
+{{ "TANK is GOOD" | lowercase |tankreplace}}
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>控制器中属性和方法的继承</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="show">
+        {{name_a+"/"+name_b+name_b + "/"+name_c+name_c + "/"+score}}
+    </div>
+    <div ng-controller="ctrl_child">
+        <div class="show">
+            {{name_a+"/"+name_b+"/"+name_c+"/"+score}}
+        </div>
+        <div ng-controller="ctrl_child_child">
+            <div class="show">
+                {{name_a+"/"+name_b+"/"+name_c+"/"+score}}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.name_a = "张三";
+        $scope.score = 60;
+    });
+    app.controller('ctrl_child', function ($scope) {
+        $scope.name_b = "李四";
+        $scope.score = 70;
+    });
+    app.controller('ctrl_child_child', function ($scope) {
+        $scope.name_c = "王二";
+        $scope.score = 80;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <script src="bootstrap.js"></script>
+    <script src="angular.js"></script>
+    <script src="myApp.js"></script>
+</head>
+<body>
+    <form ng-app="myApp" ng-controller="myCtrl">
+        <div class="form-group">
+            <label>Email: </label>
+            <input type="email" class="form-control" placeholder="Email" ng-model="userInfo.email">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Password" ng-model="userInfo.password">
+        </div>
+        <div class="form-group">
+            <label>File input</label>
+            <input type="file">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="userInfo.autoLogin">Check me here
+            </label>
+        </div>
+        <button class="btn btn-default" ng-click="getFormData">GetForm</button>
+    </form>
+</body>
+</html>

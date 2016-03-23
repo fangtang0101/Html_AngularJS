@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>服务的装饰器</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="show">姓名:{{stu.name}}</div>
+    <div class="show">邮件:{{stu.email}}</div>
+    <div class="show">主题:{{stu.title}}</div>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app
+            .factory('$student', function () {
+                return {
+                    name: 'Zwei',
+                    email: '2312@qq.com'
+                }
+            })
+            .config(function ($provide) {
+                $provide.decorator('$student', function ($delegate) {
+                    $delegate.title = 'Hello, angular!';
+                    return $delegate;
+                })
+            })
+            .controller('ctrl', function ($scope, $student) {
+                $scope.stu = $student;
+            });
+</script>
+</body>
+</html>

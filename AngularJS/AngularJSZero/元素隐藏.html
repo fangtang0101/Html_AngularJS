@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <title>元素隐藏</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        div {
+            margin: 8px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="ctrl">
+        <div ng-show="{{isShow}}">Zwei</div>
+        <div ng-hide="{{isHide}}">334091456@qq.com</div>
+        <ul ng-switch on={{switch}}>
+            <li ng-switch-when="1">Zwei</li>
+            <li ng-switch-when="2">334091456@qq.com</li>
+            <li ng-switch-default>更多...</li>
+        </ul>
+    </div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.isShow = true;
+        $scope.isHide = false;
+        $scope.switch = 3;
+    });
+</script>
+</body>
+</html>

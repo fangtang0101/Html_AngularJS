@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <title>$scope继承</title>
+</head>
+<body>
+    <div ng-controller="ctrl1">
+        <div ng-controller="ctrl2">
+            <span class="show">{{text}}</span>
+            <br/>
+            <span class="show">{{childText}}</span>
+            <br/>
+            <input type="button" id="buttonShow" ng-click="clickShow()" value="继承"/>
+        </div>
+    </div>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl1', function ($scope) {
+        $scope.text = 'Hello,Angular';//并没有执行,而是在ctrl2这个子控制器中继承执行
+        $scope.clickShow = function () {
+            $scope.text = '点击按钮后显示的内容';
+        };
+    });
+    app.controller('ctrl2', function ($scope) {
+        $scope.childText = '欢迎来到AngularJS';
+    });
+</script>
+</body>
+</html>

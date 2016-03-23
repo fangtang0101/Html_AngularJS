@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        .show {
+            background-color: #ccc;
+            padding: 8px;
+            width: 260px;
+            margin: 10px 0px;
+        }
+    </style>
+    <title>使用service方法自定义服务</title>
+</head>
+<body>
+<div ng-controller="ctrl">
+    <div class="show">姓名:{{name}}</div>
+    <div class="show">邮件:{{email}}</div>
+    <div class="show">{{title}}</div>
+    <button ng-click="say()">主题</button>
+</div>
+<script>
+    var app = angular.module('app', []);
+    app.service('$student', function () {
+        this.name = 'Zwei';
+        this.email = '3340@qq.com';
+        this.say = function () {
+            return 'hello, angular'
+        }
+    });
+    //与factory等价
+    /*
+    function student() {
+        this.name = 'Zwei';
+        this.email = '3340@qq.com';
+        this.say = function () {
+            return 'hello, angular'
+        }
+    }
+    app.factory($student, function () {
+        return new student();
+    });
+    */
+    app.controller('ctrl', function ($scope, $student) {
+        $scope.name = $student.name;
+        $scope.email = $student.email;
+        $scope.say = function () {
+            $scope.title = $student.say();
+        }
+    });
+</script>
+</body>
+</html>
